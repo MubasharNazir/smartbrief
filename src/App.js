@@ -2337,7 +2337,7 @@ const WeeklyNewsProfiler = () => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Country *
                 </label>
-                <select
+                {/* <select
                   value={emailData.country}
                   onChange={(e) => setEmailData(prev => ({ ...prev, country: e.target.value }))}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -2349,7 +2349,24 @@ const WeeklyNewsProfiler = () => {
                   {countryOptions.map(country => (
                     <option key={country} value={country}>{country}</option>
                   ))}
-                </select>
+                </select> */}
+                <select
+  value={emailData.country}
+  onChange={(e) => setEmailData(prev => ({ ...prev, country: e.target.value }))}
+  className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+  required
+>
+  <option value="" disabled>
+    Select your country
+  </option>
+  {countryOptions.map(country => (
+    <option key={country} value={country}>{country}</option>
+  ))}
+</select>
+{/* Delivery timing info below country selection */}
+<p className="text-xs text-gray-500 mt-2">
+  Your weekly news will be delivered every Monday at 7:00 AM in your country’s local time zone.
+</p>
               </div>
 
               <div className="bg-gray-50 rounded-lg p-4">
