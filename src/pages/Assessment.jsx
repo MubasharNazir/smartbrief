@@ -449,13 +449,13 @@ const renderQuestion = () => {
       <div className="max-w-4xl mx-auto">
         {/* Back Navigation */}
         <div className="mb-6">
-          <button
+          {/* <button
             onClick={prevStep}
             className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-medium shadow-sm transition-all duration-200 hover:shadow-md"
           >
             <ChevronLeft className="w-5 h-5" />
             Back to Home
-          </button>
+          </button> */}
         </div>
         
         {/* Progress bar */}

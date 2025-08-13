@@ -15,13 +15,13 @@ const Confirmation = () => {
   return (
     <div className="min-h-screen bg-white p-4">
       <div className="max-w-4xl mx-auto">
-        <button
+        {/* <button
           onClick={() => navigate('/')}
           className="flex items-center gap-2 mb-8 px-4 py-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-medium shadow-sm"
         >
           <ChevronLeft className="w-5 h-5" />
           Back to Home
-        </button>
+        </button> */}
         {/* Success Header */}
         <div className="text-center mb-12">
           <div className="w-24 h-24 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mx-auto mb-6 flex items-center justify-center">
