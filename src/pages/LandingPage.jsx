@@ -77,7 +77,8 @@ const LandingPage = () => {
                 With Smartbreif, your week begins with clarity.
               </h2>
               <p className="text-lg md:text-xl text-slate-700 mb-8">
-                Get a Monday-morning brief of the top 10 stories tailored to your interests. No fluff. No noise. Just what matters to you.
+                {/* Get a Monday-morning brief of the top 10 stories tailored to your interests. No fluff. No noise. Just what matters to you. */}
+                Imagine your own AI agent, that reads 1,000 news articles and tells you only what matters to you.
               </p>
               <div className="text-sm text-slate-600 mb-3">
                 Where your week is understood — Get Smartbrief.

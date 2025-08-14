@@ -117,20 +117,20 @@ const questionFlow = [
         }
       }
     },
-    {
-      id: 'news_depth',
-      type: 'rating',
-      title: "How do you prefer your news served?",
-      question: "",
-      options: [
-        { id: 'headlines', text: "Quick headlines with key points", category: 'format' },
-        { id: 'summaries', text: "Brief summaries (2-3 sentences)", category: 'format' },
-        { id: 'detailed', text: "Detailed articles with background", category: 'format' },
-        { id: 'analysis', text: "Expert analysis and opinion", category: 'format' },
-        { id: 'data_driven', text: "Charts, graphs, and data visualizations", category: 'format' },
-        { id: 'multiple_sources', text: "Multiple perspectives on same story", category: 'format' }
-      ]
-    },
+    // {
+    //   id: 'news_depth',
+    //   type: 'rating',
+    //   title: "How do you prefer your news served?",
+    //   question: "",
+    //   options: [
+    //     { id: 'headlines', text: "Quick headlines with key points", category: 'format' },
+    //     { id: 'summaries', text: "Brief summaries (2-3 sentences)", category: 'format' },
+    //     { id: 'detailed', text: "Detailed articles with background", category: 'format' },
+    //     { id: 'analysis', text: "Expert analysis and opinion", category: 'format' },
+    //     { id: 'data_driven', text: "Charts, graphs, and data visualizations", category: 'format' },
+    //     { id: 'multiple_sources', text: "Multiple perspectives on same story", category: 'format' }
+    //   ]
+    // },
     {
       id: 'news_priorities',
       type: 'multiple_choice',
@@ -152,38 +152,38 @@ const questionFlow = [
 ]
 
     },
-    {
-      id: 'information_style',
-      type: 'slider',
-      title: "Customize your news experience",
-      question: "",
-      sliders: [
-        { 
-          id: 'speed_vs_depth', 
-          label: 'Information Processing', 
-          left: 'Quick updates', 
-          right: 'In-depth analysis',
-          leftWeight: { quick: 3, surface: 2 },
-          rightWeight: { deep: 3, analytical: 2 }
-        },
-        { 
-          id: 'global_vs_local', 
-          label: 'Geographic Focus', 
-          left: 'Local & national news', 
-          right: 'International & global',
-          leftWeight: { local: 3, national: 2 },
-          rightWeight: { international: 3, global: 2 }
-        },
-        { 
-          id: 'breaking_vs_analysis', 
-          label: 'News Timing', 
-          left: 'Breaking news first', 
-          right: 'Well-researched stories',
-          leftWeight: { breaking: 3, immediate: 2 },
-          rightWeight: { researched: 3, quality: 2 }
-        }
-      ]
-    },
+    // {
+    //   id: 'information_style',
+    //   type: 'slider',
+    //   title: "Customize your news experience",
+    //   question: "",
+    //   sliders: [
+    //     { 
+    //       id: 'speed_vs_depth', 
+    //       label: 'Information Processing', 
+    //       left: 'Quick updates', 
+    //       right: 'In-depth analysis',
+    //       leftWeight: { quick: 3, surface: 2 },
+    //       rightWeight: { deep: 3, analytical: 2 }
+    //     },
+    //     { 
+    //       id: 'global_vs_local', 
+    //       label: 'Geographic Focus', 
+    //       left: 'Local & national news', 
+    //       right: 'International & global',
+    //       leftWeight: { local: 3, national: 2 },
+    //       rightWeight: { international: 3, global: 2 }
+    //     },
+    //     { 
+    //       id: 'breaking_vs_analysis', 
+    //       label: 'News Timing', 
+    //       left: 'Breaking news first', 
+    //       right: 'Well-researched stories',
+    //       leftWeight: { breaking: 3, immediate: 2 },
+    //       rightWeight: { researched: 3, quality: 2 }
+    //     }
+    //   ]
+    // },
     {
       id: 'reading_behavior',
       type: 'multiple_choice',
