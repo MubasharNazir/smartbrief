@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Mail, ChevronLeft, Eye } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 const SampleIssue = () => {
   const navigate = useNavigate();

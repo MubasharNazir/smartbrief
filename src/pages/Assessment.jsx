@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  Mail, Star, Clock, TrendingUp, Globe,
-  ChevronRight, ChevronLeft, Check, Target, Users,
-  Brain, Calendar, Database, CheckCircle, Eye, Settings,
-  Rocket, Shield, Heart
+  Star, ChevronRight, ChevronLeft, Check
 } from 'lucide-react';
 
 const Assessment = () => {
@@ -137,7 +134,7 @@ const questionFlow = [
       title: "What matters most to you in news?",
       question: "",
    options: [
-  { id: 'breaking', text: "🚨 Breaking news and real-time updates", weight: { urgency: 3, breaking: 3 } },
+  
   { id: 'impact', text: "📈 Stories that impact my life or work", weight: { personal: 3, relevance: 3 } },
   { id: 'trends', text: "📊 Trends and patterns over time", weight: { analytical: 3, trends: 3 } },
   { id: 'global', text: "🌍 Understanding the bigger picture", weight: { global: 3, context: 3 } },

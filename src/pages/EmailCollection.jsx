@@ -3,10 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 import { 
-  Mail, Star, Clock, TrendingUp, Globe,
-  ChevronRight, ChevronLeft, Check, Target, Users,
-  Brain, Calendar, Database, CheckCircle, Eye, Settings,
-  Rocket, Shield, Heart
+  Mail, Check, Calendar, CheckCircle
 } from 'lucide-react';
 
 const EmailCollection = () => {

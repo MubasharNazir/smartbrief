@@ -1,10 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { 
-  Mail, Star, Clock, TrendingUp, Globe,
-  ChevronRight, ChevronLeft, Check, Target, Users,
-  Brain, Calendar, Database, CheckCircle, Eye, Settings,
-  Rocket, Shield, Heart
+  Mail, Calendar, CheckCircle, Globe, Eye, Settings, Users, TrendingUp
 } from 'lucide-react';
 
 const Confirmation = () => {

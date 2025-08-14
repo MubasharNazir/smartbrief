@@ -1450,6 +1450,10 @@ import EmailCollection from './pages/EmailCollection';
 import Loading from './pages/Loading';
 import Confirmation from './pages/Confirmation';
 import SampleIssue from './pages/SampleIssue';
+import About from './pages/About';
+import Blog from './pages/Blog';
+import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -1461,6 +1465,10 @@ function App() {
         <Route path="/loading" element={<Loading />} />
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/sample-issue" element={<SampleIssue />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </Router>
   );

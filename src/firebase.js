@@ -21,7 +21,7 @@
 // const analytics = getAnalytics(app);
 
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics } from "firebase/analytics"; // Commented out to avoid unused import warning
 import { getFirestore } from "firebase/firestore"; // <-- Add this line
 
 const firebaseConfig = {
@@ -35,7 +35,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app); // Commented out to avoid unused variable warning
 const db = getFirestore(app); // <-- Add this line
 
 export { db }; // <-- Add this line
