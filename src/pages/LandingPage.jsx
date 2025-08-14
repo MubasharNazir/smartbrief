@@ -469,8 +469,18 @@ const LandingPage = () => {
                   >
                     Privacy Policy
                   </button>
-                  <button className="text-slate-600 hover:text-blue-600 transition-colors">Terms of Service</button>
-                  <button className="text-slate-600 hover:text-blue-600 transition-colors">Cookie Policy</button>
+                  <button 
+                    onClick={() => navigate('/terms-of-service')}
+                    className="text-slate-600 hover:text-blue-600 transition-colors"
+                  >
+                    Terms of Service
+                  </button>
+                  <button 
+                    onClick={() => navigate('/cookie-policy')}
+                    className="text-slate-600 hover:text-blue-600 transition-colors"
+                  >
+                    Cookie Policy
+                  </button>
                 </div>
               </div>
             </div>
