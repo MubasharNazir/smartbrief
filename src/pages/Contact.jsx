@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { db } from '../firebase';
+import { collection, addDoc } from "firebase/firestore";
 import { 
   Mail, Send, Clock, 
   ChevronLeft, MessageCircle, HelpCircle, Users,
@@ -15,6 +17,8 @@ const Contact = () => {
     message: '',
     type: 'general'
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const [openFaq, setOpenFaq] = useState(null);
 
@@ -22,18 +26,43 @@ const Contact = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We\'ll get back to you within 24 hours.');
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-      type: 'general'
-    });
+    setIsSubmitting(true);
+    
+    try {
+      // Save contact form data to Firebase
+      await addDoc(collection(db, "contact-submissions"), {
+        ...formData,
+        timestamp: new Date().toISOString(),
+        status: 'new', // For admin tracking
+        userAgent: navigator.userAgent,
+        submittedAt: new Date()
+      });
+
+      // Show success message
+      setSubmitSuccess(true);
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+        type: 'general'
+      });
+
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setSubmitSuccess(false);
+      }, 5000);
+
+    } catch (error) {
+      console.error('Error saving contact form:', error);
+      alert('Sorry, there was an error sending your message. Please try again or email us directly at mubasharoneview@gmail.com');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -159,12 +188,28 @@ const Contact = () => {
                 />
               </div>
 
+              {/* Success Message */}
+              {submitSuccess && (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                  <div className="flex items-center gap-2 text-green-800">
+                    <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <span className="font-semibold">Message sent successfully!</span>
+                  </div>
+                  <p className="text-green-700 text-sm mt-2">
+                    Thank you for your message! We'll get back to you within 24 hours.
+                  </p>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-4 px-6 rounded-lg font-bold text-lg hover:shadow-lg transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-4 px-6 rounded-lg font-bold text-lg hover:shadow-lg transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                <Send className="w-5 h-5" />
-                Send Message
+                <Send className={`w-5 h-5 ${isSubmitting ? 'animate-pulse' : ''}`} />
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
@@ -176,13 +221,13 @@ const Contact = () => {
               <h3 className="text-2xl font-bold mb-6">Quick Contact</h3>
               <div className="space-y-4">
                 <a
-                  href="mailto:hello@smartbrief.com"
+                  href="mailto:mubasharoneview@gmail.com"
                   className="flex items-center gap-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
                 >
                   <Mail className="w-6 h-6" />
                   <div>
                     <div className="font-semibold">Email Us</div>
-                    <div className="text-blue-100">hello@smartbrief.com</div>
+                    <div className="text-blue-100">mubasharoneview@gmail.com</div>
                   </div>
                 </a>
                 <div className="flex items-center gap-4 p-4 bg-white/10 rounded-lg">
@@ -255,8 +300,8 @@ const Contact = () => {
               </div>
               <h3 className="font-bold text-gray-800 mb-2">Support</h3>
               <p className="text-gray-600 text-sm mb-3">For technical help and account issues</p>
-              <a href="mailto:support@smartbrief.com" className="text-blue-500 font-medium">
-                support@smartbrief.com
+              <a href="mailto:mubasharoneview@gmail.com" className="text-blue-500 font-medium">
+                mubasharoneview@gmail.com
               </a>
             </div>
             <div className="text-center">
@@ -265,8 +310,8 @@ const Contact = () => {
               </div>
               <h3 className="font-bold text-gray-800 mb-2">Partnerships</h3>
               <p className="text-gray-600 text-sm mb-3">For business and partnership inquiries</p>
-              <a href="mailto:partnerships@smartbrief.com" className="text-green-500 font-medium">
-                partnerships@smartbrief.com
+              <a href="mailto:mubasharoneview@gmail.com" className="text-green-500 font-medium">
+                mubasharoneview@gmail.com
               </a>
             </div>
             <div className="text-center">
@@ -275,8 +320,8 @@ const Contact = () => {
               </div>
               <h3 className="font-bold text-gray-800 mb-2">Press</h3>
               <p className="text-gray-600 text-sm mb-3">For media and press inquiries</p>
-              <a href="mailto:press@smartbrief.com" className="text-purple-500 font-medium">
-                press@smartbrief.com
+              <a href="mailto:mubasharoneview@gmail.com" className="text-purple-500 font-medium">
+                mubasharoneview@gmail.com
               </a>
             </div>
           </div>

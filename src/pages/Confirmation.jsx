@@ -141,7 +141,7 @@ const Confirmation = () => {
               your recommendations based on what you read and engage with.
             </p>
             <div className="text-sm text-gray-500">
-              Questions? Email us at support@mondaymorningnews.com
+              Questions? Email us at mubasharoneview@gmail.com
             </div>
           </div>
         </div>

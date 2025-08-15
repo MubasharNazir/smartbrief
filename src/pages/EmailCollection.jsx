@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { db } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 import { 
@@ -10,6 +10,10 @@ const EmailCollection = () => {
   const [emailData, setEmailData] = useState({ name: '', email: '', country: '' });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { state } = useLocation();
+  
+  // Get assessment answers from navigation state
+  const assessmentAnswers = state?.assessmentAnswers || {};
 
   // Country options (same as before)
 const countryOptions = [
@@ -27,17 +31,118 @@ const countryOptions = [
   "South Korea"
 ];
 
+  // Function to calculate user's news profile based on assessment answers
+  const calculateNewsProfile = () => {
+    const scores = {
+      politics: 0,
+      business: 0,
+      technology: 0,
+      international: 0,
+      science: 0,
+      entertainment: 0,
+      lifestyle: 0
+    };
+
+    const preferences = {
+      format: 'summary',
+      delivery: 'structured',
+      focus: 'balanced',
+      timing: 'morning'
+    };
+
+    // Process topic selections (most important for news categorization)
+    if (assessmentAnswers.news_categories) {
+      Object.entries(assessmentAnswers.news_categories).forEach(([category, topics]) => {
+        if (scores.hasOwnProperty(category)) {
+          scores[category] = topics.length * 10; // High weight for explicit topic selection
+        }
+      });
+    }
+
+    // Normalize scores and determine top interests
+    const maxScore = Math.max(...Object.values(scores));
+    const normalizedScores = Object.entries(scores)
+      .map(([category, score]) => ({
+        category,
+        score,
+        percentage: maxScore > 0 ? Math.round((score / maxScore) * 100) : 0
+      }))
+      .sort((a, b) => b.score - a.score)
+      .filter(item => item.score > 0);
+
+    return { interests: normalizedScores, preferences };
+  };
+
   const completeProfileCreation = async () => {
     setLoading(true);
     try {
-      // Save to Firestore
-      await addDoc(collection(db, "users"), {
-        ...emailData,
-        timestamp: new Date().toISOString()
+      const profile = calculateNewsProfile();
+      const timestamp = new Date().toISOString();
+
+      // Prepare complete user profile data
+      const completeProfile = {
+        // Basic user info
+        name: emailData.name,
+        email: emailData.email,
+        country: emailData.country,
+        timestamp,
+        
+        // Assessment data
+        profession: assessmentAnswers.profession || [],
+        hobbies: assessmentAnswers.hobbies || [],
+        news_consumption: assessmentAnswers.news_consumption || [],
+        news_priorities: assessmentAnswers.news_priorities || [],
+        reading_behavior: assessmentAnswers.reading_behavior || [],
+        
+        // Calculated profile
+        primary_interests: profile.interests.slice(0, 3).map(i => i.category).join(', '),
+        all_interest_scores: profile.interests,
+        content_format: profile.preferences.format,
+        delivery_style: profile.preferences.delivery,
+        geographic_focus: profile.preferences.focus,
+        selected_topics: assessmentAnswers.news_categories || {},
+        
+        // Raw data
+        raw_answers: assessmentAnswers,
+        
+        // Metadata
+        created_at: new Date(),
+        status: 'active'
+      };
+
+      // Save complete user profile to 'user-profiles' collection
+      await addDoc(collection(db, "user-profiles"), completeProfile);
+      
+      // Save just email info to separate 'email-subscribers' collection
+      await addDoc(collection(db, "email-subscribers"), {
+        name: emailData.name,
+        email: emailData.email,
+        country: emailData.country,
+        timestamp,
+        subscription_status: 'active',
+        created_at: new Date(),
+        
+        // News topics for email segmentation
+        selected_topics: assessmentAnswers.news_categories || {},
+        
+        // Flatten topics for easier querying
+        topic_categories: Object.keys(assessmentAnswers.news_categories || {}),
+        all_selected_topics: Object.values(assessmentAnswers.news_categories || {}).flat(),
+        
+        // Primary interests for quick filtering
+        primary_interests: profile.interests.slice(0, 3).map(i => i.category)
+      });
+
+      console.log('Profile saved successfully:', completeProfile);
+      
+      // Navigate to confirmation page with complete profile data
+      navigate('/confirmation', { 
+        state: { 
+          userData: emailData,
+          userProfile: { ...profile, userData: emailData }
+        } 
       });
       
-      // Navigate to confirmation page
-      navigate('/confirmation', { state: { userData: emailData } });
     } catch (error) {
       console.error("Error saving data:", error);
     } finally {

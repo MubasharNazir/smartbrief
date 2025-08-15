@@ -206,7 +206,8 @@ const questionFlow = [
     if (currentStep < questionFlow.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      navigate('/email-collection');
+      // Pass assessment answers to email collection
+      navigate('/email-collection', { state: { assessmentAnswers: answers } });
     }
   };
 

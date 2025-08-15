@@ -248,7 +248,7 @@ const CookiePolicy = () => {
               </p>
               <div className="bg-white rounded-lg p-4">
                 <p className="font-medium text-gray-800 mb-2">SmartBrief Privacy Team</p>
-                <p>Email: <a href="mailto:privacy@smartbrief.com" className="text-orange-600 hover:text-orange-800">privacy@smartbrief.com</a></p>
+                <p>Email: <a href="mailto:mubasharoneview@gmail.com" className="text-orange-600 hover:text-orange-800">mubasharoneview@gmail.com</a></p>
                 <p>Phone: +1 (555) 123-4567</p>
                 <p>Address: 123 Tech Street, Innovation City, IC 12345</p>
               </div>

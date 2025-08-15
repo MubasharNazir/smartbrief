@@ -268,13 +268,13 @@ const PrivacyPolicy = () => {
               </p>
               <div className="grid md:grid-cols-2 gap-4">
                 <a
-                  href="mailto:privacy@smartbrief.com"
+                  href="mailto:mubasharoneview@gmail.com"
                   className="flex items-center gap-3 bg-white/10 rounded-lg p-4 hover:bg-white/20 transition-colors"
                 >
                   <Mail className="w-5 h-5" />
                   <div>
                     <div className="font-semibold">Email</div>
-                    <div className="text-blue-100">privacy@smartbrief.com</div>
+                    <div className="text-blue-100">mubasharoneview@gmail.com</div>
                   </div>
                 </a>
                 <div className="flex items-center gap-3 bg-white/10 rounded-lg p-4">

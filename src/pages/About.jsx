@@ -153,10 +153,10 @@ const About = () => {
                 Contact Us
               </button>
               <a
-                href="mailto:hello@smartbrief.com"
+                href="mailto:mubasharoneview@gmail.com"
                 className="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
               >
-                hello@smartbrief.com
+                mubasharoneview@gmail.com
               </a>
             </div>
           </div>
@@ -193,7 +193,7 @@ const About = () => {
                   <strong>Want to stay updated?</strong>
                 </p>
                 <p className="text-sm text-gray-600">
-                  Send us your resume at <a href="mailto:careers@smartbrief.com" className="text-blue-600 hover:text-blue-800">careers@smartbrief.com</a> 
+                  Send us your resume at <a href="mailto:mubasharoneview@gmail.com" className="text-blue-600 hover:text-blue-800">mubasharoneview@gmail.com</a> 
                   and we'll reach out when suitable positions become available.
                 </p>
               </div>
