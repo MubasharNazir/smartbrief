@@ -20,7 +20,7 @@ const SampleIssue = () => {
             <Mail className="w-12 h-12 text-white" />
           </div>
           <h1 className="text-5xl font-bold text-gray-800 mb-4">
-            Sample Monday Morning NewsIQ Issue
+            Sample Monday Morning Muba Issue
           </h1>
           <p className="text-lg text-gray-600 max-w-xl mx-auto">
             Here's what your personalized Monday morning email could look like.<br />
@@ -37,7 +37,7 @@ const SampleIssue = () => {
           <div className="bg-white rounded p-4 border-l-4 border-purple-500 mb-6">
             <div className="font-bold text-purple-800 mb-2">Good morning, Reader! ☀️</div>
             <div className="text-gray-700 text-sm">
-              Here are your top stories this week, curated just for you by NewsIQ's AI.<br />
+              Here are your top stories this week, curated just for you by Muba's AI.<br />
               <span className="text-purple-700 font-semibold">Categories: Technology, Business, Science, World, Lifestyle</span>
             </div>
           </div>
@@ -45,7 +45,7 @@ const SampleIssue = () => {
             {/* Sample stories would go here */}
           </div>
           <div className="text-center text-gray-500 text-sm py-6">
-            <span className="font-semibold text-purple-700">NewsIQ</span> — Your week, perfectly curated.<br />
+            <span className="font-semibold text-purple-700">Muba</span> — Your week, perfectly curated.<br />
             <span className="italic">Want this in your inbox? <span className="underline cursor-pointer text-purple-600" onClick={() => navigate('/assessment')}>Build your profile now</span>.</span>
           </div>
         </div>

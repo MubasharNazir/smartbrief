@@ -470,7 +470,7 @@ const LandingPage = () => {
             <div className="pt-8 border-t border-slate-200">
               <div className="flex flex-col md:flex-row justify-between items-center">
                 <div className="text-slate-600 text-sm mb-4 md:mb-0">
-                  © 2024 NewsIQ. All rights reserved.
+                  © 2024 Muba. All rights reserved.
                 </div>
                 <div className="flex space-x-6 text-sm">
                   <button 
