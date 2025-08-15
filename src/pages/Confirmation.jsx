@@ -21,7 +21,7 @@ const Confirmation = () => {
         </button> */}
         {/* Success Header */}
         <div className="text-center mb-12">
-          <div className="w-24 h-24 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+          <div className="w-24 h-24 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center">
             <CheckCircle className="w-12 h-12 text-white" />
           </div>
           <h1 className="text-5xl font-bold text-gray-800 mb-4">
@@ -36,18 +36,18 @@ const Confirmation = () => {
         {/* Profile Summary */}
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-            <Mail className="w-6 h-6 text-blue-500" />
+            <Mail className="w-6 h-6 text-purple-500" />
             Email Delivery Details
           </h2>
-          <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-6 flex flex-col md:flex-row gap-8 items-center">
+          <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 flex flex-col md:flex-row gap-8 items-center">
             <div className="flex-1 space-y-4">
               <div className="flex items-center gap-3">
-                <Calendar className="w-5 h-5 text-blue-600" />
+                <Calendar className="w-5 h-5 text-purple-600" />
                 <span className="font-semibold text-gray-800">Delivery Time:</span>
                 <span className="text-gray-700">Every Monday at 7:00 AM</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-green-600" />
+                <Mail className="w-5 h-5 text-pink-600" />
                 <span className="font-semibold text-gray-800">To:</span>
                 <span className="text-gray-700">{userProfile.email}</span>
               </div>
@@ -63,7 +63,7 @@ const Confirmation = () => {
               </div>
             </div>
             <div className="flex-shrink-0">
-              <div className="bg-gradient-to-br from-blue-500 to-green-400 rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-lg">
+              <div className="bg-gradient-to-br from-purple-500 to-pink-400 rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-lg">
                 <Mail className="w-10 h-10 text-white mb-2" />
                 <span className="text-white font-bold text-lg text-center"></span>
               </div>
@@ -76,7 +76,7 @@ const Confirmation = () => {
         </div>
 
         {/* Next Steps */}
-        <div className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl p-8 text-white text-center mb-8">
+        <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-8 text-white text-center mb-8">
           <h3 className="text-3xl font-bold mb-4">What Happens Next?</h3>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white bg-opacity-10 rounded-lg p-4">
@@ -101,34 +101,34 @@ const Confirmation = () => {
         <div className="text-center space-y-6">
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-lg p-6 shadow-sm text-center">
-              <Eye className="w-12 h-12 text-blue-500 mx-auto mb-4" />
+              <Eye className="w-12 h-12 text-purple-500 mx-auto mb-4" />
               <h4 className="font-bold mb-2">Preview Sample Email</h4>
               <p className="text-gray-600 text-sm mb-4">See what your Monday email will look like</p>
               <button 
                 onClick={() => navigate('/sample-issue')}
-                className="text-blue-500 hover:text-blue-600 font-medium"
+                className="text-purple-500 hover:text-purple-600 font-medium"
               >
                 View Sample
               </button>
             </div>
 
             <div className="bg-white rounded-lg p-6 shadow-sm text-center">
-              <Settings className="w-12 h-12 text-green-500 mx-auto mb-4" />
+              <Settings className="w-12 h-12 text-purple-600 mx-auto mb-4" />
               <h4 className="font-bold mb-2">Update Preferences</h4>
               <p className="text-gray-600 text-sm mb-4">Change your interests anytime</p>
               <button 
                 onClick={() => navigate('/assessment')}
-                className="text-green-500 hover:text-green-600 font-medium"
+                className="text-purple-600 hover:text-purple-700 font-medium"
               >
                 Retake Quiz
               </button>
             </div>
 
             <div className="bg-white rounded-lg p-6 shadow-sm text-center">
-              <Users className="w-12 h-12 text-purple-500 mx-auto mb-4" />
+              <Users className="w-12 h-12 text-pink-500 mx-auto mb-4" />
               <h4 className="font-bold mb-2">Share with Friends</h4>
               <p className="text-gray-600 text-sm mb-4">Help others get personalized news too</p>
-              <button className="text-purple-500 hover:text-purple-600 font-medium">
+              <button className="text-pink-500 hover:text-pink-600 font-medium">
                 Invite Friends
               </button>
             </div>

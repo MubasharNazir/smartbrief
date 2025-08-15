@@ -1451,7 +1451,6 @@ import Loading from './pages/Loading';
 import Confirmation from './pages/Confirmation';
 import SampleIssue from './pages/SampleIssue';
 import About from './pages/About';
-import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
@@ -1468,7 +1467,6 @@ function App() {
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/sample-issue" element={<SampleIssue />} />
         <Route path="/about" element={<About />} />
-        <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />

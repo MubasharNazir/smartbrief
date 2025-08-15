@@ -61,9 +61,9 @@ const Blog = () => {
     },
     {
       id: 6,
-      title: "From Chaos to Clarity: Our Journey Building Smartbrief",
+      title: "From Chaos to Clarity: Our Journey Building Muba",
       excerpt: "The story behind creating an AI news platform that serves thousands of professionals worldwide.",
-      author: "Smartbrief Team",
+      author: "Muba Team",
       date: "August 1, 2025",
       readTime: "10 min read",
       category: "Company",
@@ -76,11 +76,13 @@ const Blog = () => {
       {/* Header */}
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-sm border-b border-slate-200">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full w-10 h-10 flex items-center justify-center shadow">
-              <Mail className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-lg font-bold tracking-tight">Smartbrief</span>
+          <div className="flex items-center gap-3 group">
+            {/* Same Logo as Hero Section */}
+            <img 
+              src="/muba.today.svg" 
+              alt="Muba.today Logo" 
+              className="h-8 w-auto transition-all duration-300 group-hover:scale-110"
+            />
           </div>
           <button
             onClick={() => navigate('/')}
@@ -95,7 +97,7 @@ const Blog = () => {
       <div className="container mx-auto px-4 py-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-gray-800 mb-6">Smartbrief Blog</h1>
+          <h1 className="text-5xl font-bold text-gray-800 mb-6">Muba Blog</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Insights, tips, and stories about news consumption, AI, and staying informed in the modern world.
           </p>

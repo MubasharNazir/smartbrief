@@ -257,14 +257,14 @@ const renderQuestion = () => {
                     onClick={() => handleMultipleChoice(question.id, option.id)}
                     className={`p-4 rounded-xl border-2 text-left transition-all hover:shadow-md flex items-start gap-3 ${
                       isSelected 
-                        ? 'border-blue-500 bg-blue-50 text-blue-700' 
+                        ? 'border-purple-500 bg-purple-50 text-purple-700' 
                         : 'border-gray-200 hover:border-blue-300'
                     }`}
                   >
                     <div className="text-xl">{option.text.split(' ')[0]}</div>
                     <div className="flex-1">{option.text.substring(option.text.indexOf(' ') + 1)}</div>
                     {isSelected && (
-                      <div className="ml-auto text-blue-500">
+                      <div className="ml-auto text-purple-500">
                         <Check className="w-5 h-5" />
                       </div>
                     )}
@@ -286,7 +286,7 @@ const renderQuestion = () => {
                   onClick={() => handleAnswer(question.id, option.id)}
                   className={`w-full p-4 rounded-xl border-2 text-left transition-all hover:shadow-md ${
                     answers[question.id] === option.id 
-                      ? 'border-blue-500 bg-blue-50 text-blue-700' 
+                      ? 'border-purple-500 bg-purple-50 text-purple-700' 
                       : 'border-gray-200 hover:border-blue-300'
                   }`}
                 >
@@ -333,7 +333,7 @@ const renderQuestion = () => {
                       }}
                       className={`p-3 rounded-lg border text-sm font-medium transition-all ${
                         answers[question.id]?.[categoryId]?.includes(topic)
-                          ? 'border-blue-500 bg-blue-500 text-white'
+                          ? 'border-purple-500 bg-purple-500 text-white'
                           : 'border-gray-300 bg-white hover:border-blue-300 hover:bg-blue-50'
                       }`}
                     >
@@ -370,7 +370,7 @@ const renderQuestion = () => {
               <div key={option.id} className="bg-white border rounded-lg p-4">
                 <div className="flex justify-between items-center mb-3">
                   <span className="font-medium">{option.text}</span>
-                  <span className="text-lg font-bold text-blue-600">
+                  <span className="text-lg font-bold text-purple-600">
                     {answers[question.id]?.[option.id] || 0}/5
                   </span>
                 </div>
@@ -387,7 +387,7 @@ const renderQuestion = () => {
                       }}
                       className={`w-12 h-12 rounded-full border-2 transition-all ${
                         (answers[question.id]?.[option.id] || 0) >= rating
-                          ? 'bg-blue-500 border-blue-500 text-white'
+                          ? 'bg-purple-500 border-purple-500 text-white'
                           : 'border-gray-300 hover:border-blue-300'
                       }`}
                     >
@@ -428,7 +428,7 @@ const renderQuestion = () => {
                     }}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                   />
-                  <div className="text-center text-lg font-medium text-blue-600">
+                  <div className="text-center text-lg font-medium text-purple-600">
                     {answers[question.id]?.[slider.id] || 50}%
                   </div>
                 </div>
@@ -466,7 +466,7 @@ const renderQuestion = () => {
           </div>
           <div className="w-full bg-gray-200 rounded-full h-3">
             <div 
-              className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full transition-all duration-300"
               style={{ width: `${((currentStep + 1) / questionFlow.length) * 100}%` }}
             ></div>
           </div>
@@ -481,7 +481,7 @@ const renderQuestion = () => {
             <h2 className="text-3xl font-bold text-gray-800 mb-2">
               {questionFlow[currentStep].title}
             </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded"></div>
+            <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded"></div>
           </div>
           
           {renderQuestion()}
@@ -507,7 +507,7 @@ const renderQuestion = () => {
                 <div
                   key={index}
                   className={`w-3 h-3 rounded-full ${
-                    index <= currentStep ? 'bg-blue-500' : 'bg-gray-300'
+                    index <= currentStep ? 'bg-purple-500' : 'bg-gray-300'
                   }`}
                 />
               ))}
@@ -519,7 +519,7 @@ const renderQuestion = () => {
             disabled={!answers[questionFlow[currentStep].id] || 
               (questionFlow[currentStep].type === 'multiple_choice' && 
                answers[questionFlow[currentStep].id]?.length === 0)}
-            className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-semibold hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             {currentStep === questionFlow.length - 1 ? 'Complete Profile' : 'Next Question'}
             <ChevronRight className="w-5 h-5" />

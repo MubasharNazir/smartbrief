@@ -77,11 +77,13 @@ const Contact = () => {
       {/* Header */}
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-sm border-b border-slate-200">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full w-10 h-10 flex items-center justify-center shadow">
-              <Mail className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-lg font-bold tracking-tight">Smartbrief</span>
+          <div className="flex items-center gap-3 group">
+            {/* Same Logo as Hero Section */}
+            <img 
+              src="/muba.today.svg" 
+              alt="Muba.today Logo" 
+              className="h-8 w-auto transition-all duration-300 group-hover:scale-110"
+            />
           </div>
           <button
             onClick={() => navigate('/')}
@@ -119,7 +121,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="Your full name"
                   />
                 </div>
@@ -133,7 +135,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -147,7 +149,7 @@ const Contact = () => {
                   name="type"
                   value={formData.type}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 >
                   <option value="general">General Inquiry</option>
                   <option value="support">Technical Support</option>
@@ -168,7 +170,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="Brief description of your inquiry"
                 />
               </div>
@@ -183,7 +185,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
                   placeholder="Please provide details about your inquiry..."
                 />
               </div>
@@ -206,7 +208,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-4 px-6 rounded-lg font-bold text-lg hover:shadow-lg transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white py-4 px-6 rounded-lg font-bold text-lg hover:shadow-lg transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 <Send className={`w-5 h-5 ${isSubmitting ? 'animate-pulse' : ''}`} />
                 {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -217,7 +219,7 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Quick Contact */}
-            <div className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-r from-purple-600 to-pink-500 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-6">Quick Contact</h3>
               <div className="space-y-4">
                 <a
@@ -227,14 +229,14 @@ const Contact = () => {
                   <Mail className="w-6 h-6" />
                   <div>
                     <div className="font-semibold">Email Us</div>
-                    <div className="text-blue-100">mubasharoneview@gmail.com</div>
+                    <div className="text-purple-100">mubasharoneview@gmail.com</div>
                   </div>
                 </a>
                 <div className="flex items-center gap-4 p-4 bg-white/10 rounded-lg">
                   <Clock className="w-6 h-6" />
                   <div>
                     <div className="font-semibold">Response Time</div>
-                    <div className="text-blue-100">Within 24 hours</div>
+                    <div className="text-purple-100">Within 24 hours</div>
                   </div>
                 </div>
               </div>
@@ -245,8 +247,8 @@ const Contact = () => {
               <h3 className="text-xl font-bold text-gray-800 mb-6">How can we help?</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="bg-blue-100 rounded-full p-2 mt-1">
-                    <HelpCircle className="w-5 h-5 text-blue-500" />
+                  <div className="bg-purple-100 rounded-full p-2 mt-1">
+                    <HelpCircle className="w-5 h-5 text-purple-500" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-800">General Questions</h4>
@@ -295,12 +297,12 @@ const Contact = () => {
           <h2 className="text-2xl font-bold text-gray-800 mb-8">Other Ways to Reach Us</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-8 h-8 text-blue-500" />
+              <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-8 h-8 text-purple-500" />
               </div>
               <h3 className="font-bold text-gray-800 mb-2">Support</h3>
               <p className="text-gray-600 text-sm mb-3">For technical help and account issues</p>
-              <a href="mailto:mubasharoneview@gmail.com" className="text-blue-500 font-medium">
+              <a href="mailto:mubasharoneview@gmail.com" className="text-purple-500 font-medium">
                 mubasharoneview@gmail.com
               </a>
             </div>
@@ -333,22 +335,22 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600">Find quick answers to common questions about SmartBrief</p>
+            <p className="text-xl text-gray-600">Find quick answers to common questions about Muba</p>
           </div>
 
           <div className="space-y-4">
             {[
               {
-                question: "What is SmartBrief?",
-                answer: "SmartBrief is an AI-powered news profiling platform that curates personalized news briefings based on your interests and preferences. Our advanced algorithms analyze your reading patterns to deliver the most relevant news content."
+                question: "What is Muba?",
+                answer: "Muba is an AI-powered news profiling platform that curates personalized news briefings based on your interests and preferences. Our advanced algorithms analyze your reading patterns to deliver the most relevant news content."
               },
               {
                 question: "How does the AI personalization work?",
-                answer: "Our AI analyzes your reading behavior, topic preferences, and engagement patterns to create a unique news profile. The more you use SmartBrief, the better it becomes at understanding your interests and delivering relevant content."
+                answer: "Our AI analyzes your reading behavior, topic preferences, and engagement patterns to create a unique news profile. The more you use Muba, the better it becomes at understanding your interests and delivering relevant content."
               },
               {
-                question: "Is SmartBrief free to use?",
-                answer: "Yes, SmartBrief offers a free tier with basic personalization features. We also offer premium plans with advanced analytics, unlimited briefings, and priority support for users who want more comprehensive news analysis."
+                question: "Is Muba free to use?",
+                answer: "Yes, Muba offers a free tier with basic personalization features. We also offer premium plans with advanced analytics, unlimited briefings, and priority support for users who want more comprehensive news analysis."
               },
               {
                 question: "How often are news briefings updated?",
@@ -367,8 +369,8 @@ const Contact = () => {
                 answer: "Yes, we take data security very seriously. All personal information is encrypted and stored securely. We never sell your data to third parties, and you can delete your account and all associated data at any time. Read our Privacy Policy for more details."
               },
               {
-                question: "Can I use SmartBrief on mobile devices?",
-                answer: "Yes! SmartBrief is fully responsive and works perfectly on all devices - desktop, tablet, and mobile. We also have mobile apps for iOS and Android coming soon for an even better mobile experience."
+                question: "Can I use Muba on mobile devices?",
+                answer: "Yes! Muba is fully responsive and works perfectly on all devices - desktop, tablet, and mobile. We also have mobile apps for iOS and Android coming soon for an even better mobile experience."
               }
             ].map((faq, index) => (
               <div key={index} className="border border-gray-200 rounded-2xl overflow-hidden">
@@ -379,7 +381,7 @@ const Contact = () => {
                   <h3 className="text-xl font-bold text-gray-800 pr-4">{faq.question}</h3>
                   <div className="flex-shrink-0">
                     {openFaq === index ? (
-                      <Minus className="w-6 h-6 text-blue-600" />
+                      <Minus className="w-6 h-6 text-purple-600" />
                     ) : (
                       <Plus className="w-6 h-6 text-gray-400" />
                     )}
@@ -395,14 +397,14 @@ const Contact = () => {
           </div>
 
           <div className="mt-16 text-center">
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-purple-50 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Still have questions?</h3>
               <p className="text-gray-600 mb-6">
                 Can't find what you're looking for? Our support team is here to help.
               </p>
               <button 
                 onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })}
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                className="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors"
               >
                 Contact Support
               </button>

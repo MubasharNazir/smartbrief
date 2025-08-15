@@ -26,7 +26,7 @@ const CookiePolicy = () => {
             </div>
             <h1 className="text-4xl font-bold text-gray-800 mb-4">Cookie Policy</h1>
             <p className="text-xl text-gray-600 mb-4">
-              Learn about how SmartBrief uses cookies to improve your experience
+              Learn about how Muba uses cookies to improve your experience
             </p>
             <p className="text-sm text-gray-500">
               Last updated: August 14, 2025
@@ -42,7 +42,7 @@ const CookiePolicy = () => {
               <h3 className="text-lg font-semibold text-orange-900 mb-2">What are Cookies?</h3>
               <p className="text-orange-800">
                 Cookies are small text files stored on your device that help us provide you with a better, 
-                more personalized experience on SmartBrief.
+                more personalized experience on Muba.
               </p>
             </div>
           </div>
@@ -62,7 +62,7 @@ const CookiePolicy = () => {
                 They are widely used to make websites work more efficiently and provide information to website owners.
               </p>
               <p>
-                Cookies help us understand how you use SmartBrief, remember your preferences, and provide you with 
+                Cookies help us understand how you use Muba, remember your preferences, and provide you with 
                 a more personalized news experience.
               </p>
             </div>
@@ -160,7 +160,7 @@ const CookiePolicy = () => {
             <div className="space-y-4 text-gray-600">
               <p>We use cookies for several purposes:</p>
               <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Authentication:</strong> To keep you logged in as you navigate through SmartBrief</li>
+                <li><strong>Authentication:</strong> To keep you logged in as you navigate through Muba</li>
                 <li><strong>Personalization:</strong> To remember your news preferences and customize content</li>
                 <li><strong>Security:</strong> To detect and prevent fraudulent activity</li>
                 <li><strong>Analytics:</strong> To understand website performance and user behavior</li>
@@ -247,7 +247,7 @@ const CookiePolicy = () => {
                 If you have any questions about our use of cookies, please contact us:
               </p>
               <div className="bg-white rounded-lg p-4">
-                <p className="font-medium text-gray-800 mb-2">SmartBrief Privacy Team</p>
+                <p className="font-medium text-gray-800 mb-2">Muba Privacy Team</p>
                 <p>Email: <a href="mailto:mubasharoneview@gmail.com" className="text-orange-600 hover:text-orange-800">mubasharoneview@gmail.com</a></p>
                 <p>Phone: +1 (555) 123-4567</p>
                 <p>Address: 123 Tech Street, Innovation City, IC 12345</p>

@@ -26,7 +26,7 @@ const TermsOfService = () => {
             </div>
             <h1 className="text-4xl font-bold text-gray-800 mb-4">Terms of Service</h1>
             <p className="text-xl text-gray-600 mb-4">
-              Please read these terms carefully before using SmartBrief
+              Please read these terms carefully before using Muba
             </p>
             <p className="text-sm text-gray-500">
               Last updated: August 14, 2025
@@ -41,7 +41,7 @@ const TermsOfService = () => {
             <div>
               <h3 className="text-lg font-semibold text-blue-900 mb-2">Terms Summary</h3>
               <p className="text-blue-800">
-                By using SmartBrief, you agree to our terms. We provide AI-powered news curation services, 
+                By using Muba, you agree to our terms. We provide AI-powered news curation services, 
                 and you're responsible for using our platform appropriately.
               </p>
             </div>
@@ -58,12 +58,12 @@ const TermsOfService = () => {
             </h2>
             <div className="space-y-4 text-gray-600">
               <p>
-                By accessing and using SmartBrief ("Service"), you accept and agree to be bound by the terms 
+                By accessing and using Muba ("Service"), you accept and agree to be bound by the terms 
                 and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
               </p>
               <p>
-                These Terms of Service ("Terms") govern your use of our website located at smartbrief.com 
-                (the "Service") operated by SmartBrief ("us", "we", or "our").
+                These Terms of Service ("Terms") govern your use of our website located at muba.today 
+                (the "Service") operated by Muba ("us", "we", or "our").
               </p>
             </div>
           </div>
@@ -73,13 +73,13 @@ const TermsOfService = () => {
             <h2 className="text-2xl font-bold text-gray-800 mb-4">2. Use License</h2>
             <div className="space-y-4 text-gray-600">
               <p>
-                Permission is granted to temporarily access SmartBrief for personal, non-commercial transitory viewing only. 
+                Permission is granted to temporarily access Muba for personal, non-commercial transitory viewing only. 
                 This is the grant of a license, not a transfer of title, and under this license you may not:
               </p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>modify or copy the materials</li>
                 <li>use the materials for any commercial purpose or for any public display (commercial or non-commercial)</li>
-                <li>attempt to decompile or reverse engineer any software contained on SmartBrief</li>
+                <li>attempt to decompile or reverse engineer any software contained on Muba</li>
                 <li>remove any copyright or other proprietary notations from the materials</li>
               </ul>
             </div>
@@ -126,7 +126,7 @@ const TermsOfService = () => {
             <div className="space-y-4 text-gray-600">
               <p>
                 The Service and its original content, features, and functionality are and will remain the exclusive property 
-                of SmartBrief and its licensors. The Service is protected by copyright, trademark, and other laws.
+                of Muba and its licensors. The Service is protected by copyright, trademark, and other laws.
               </p>
               <p>
                 Our trademarks and trade dress may not be used in connection with any product or service without our prior written consent.
@@ -177,7 +177,7 @@ const TermsOfService = () => {
                 this Company excludes all representations, warranties, conditions and terms relating to this website and the use of this website.
               </p>
               <p>
-                SmartBrief shall not be held liable for any damages arising from the use of this Service.
+                Muba shall not be held liable for any damages arising from the use of this Service.
               </p>
             </div>
           </div>
@@ -220,7 +220,7 @@ const TermsOfService = () => {
                 If you have any questions about these Terms of Service, please contact us:
               </p>
               <div className="bg-white rounded-lg p-4">
-                <p className="font-medium text-gray-800 mb-2">SmartBrief Support</p>
+                <p className="font-medium text-gray-800 mb-2">Muba Support</p>
                 <p>Email: <a href="mailto:mubasharoneview@gmail.com" className="text-blue-600 hover:text-blue-800">mubasharoneview@gmail.com</a></p>
                 <p>Phone: +1 (555) 123-4567</p>
                 <p>Address: 123 Tech Street, Innovation City, IC 12345</p>
