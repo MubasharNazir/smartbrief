@@ -7,6 +7,21 @@ const CookiePolicy = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Simple App Bar */}
+      <header className="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <img
+                src="/muba.today.svg"
+                alt="Muba Today"
+                className="h-8 w-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+      
       <div className="max-w-4xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="bg-white rounded-2xl border border-gray-200 p-8 mb-8">

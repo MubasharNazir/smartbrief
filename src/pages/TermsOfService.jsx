@@ -7,6 +7,20 @@ const TermsOfService = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* App Bar */}
+      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-sm border-b border-slate-200">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center gap-3 group">
+            <img 
+              src="/muba.today.svg" 
+              alt="Muba.today Logo" 
+              className="h-8 w-auto transition-all duration-300 group-hover:scale-110"
+            />
+          </div>
+        </div>
+      </header>
+
       <div className="max-w-4xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="bg-white rounded-2xl border border-gray-200 p-8 mb-8">

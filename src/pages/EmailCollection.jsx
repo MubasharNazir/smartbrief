@@ -151,8 +151,23 @@ const countryOptions = [
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 p-4 flex items-center justify-center">
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex flex-col">
+      {/* App Bar */}
+      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-sm border-b border-slate-200">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center gap-3 group">
+            <img 
+              src="/muba.today.svg" 
+              alt="Muba.today Logo" 
+              className="h-8 w-auto transition-all duration-300 group-hover:scale-110"
+            />
+          </div>
+        </div>
+      </header>
+
+      <div className="flex-1 p-4 flex items-center justify-center">
+        <div className="max-w-2xl mx-auto w-full">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
             <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center">
@@ -264,7 +279,7 @@ const countryOptions = [
             <button
               onClick={completeProfileCreation}
               disabled={!emailData.name || !emailData.email || !emailData.country || loading}
-              className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-4 px-6 rounded-lg font-bold text-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105"
+              className="w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white py-4 px-6 rounded-lg font-bold text-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105 hover:from-purple-500 hover:to-pink-400"
             >
               {loading ? 'Processing...' : 'Start My Weekly News 🚀'}
             </button>
@@ -275,6 +290,7 @@ const countryOptions = [
             </p>
           </div>
         </div>
+      </div>
       </div>
 
       {/* Footer */}
