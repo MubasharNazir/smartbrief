@@ -61,44 +61,48 @@ const About = () => {
         </div>
 
         {/* Mission Section */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Mission</h2>
-          <div className="max-w-4xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+          <div>
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Mission</h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
               In today's fast-paced world, staying informed shouldn't mean drowning in information. 
               We believe that every professional deserves access to curated, relevant news that 
               enhances their decision-making without consuming their entire day.
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed mb-12">
+            <p className="text-gray-600 text-lg leading-relaxed">
               Our AI algorithms analyze thousands of sources to deliver personalized briefings 
               that match your interests, industry, and reading preferences.
             </p>
           </div>
-        </div>
-
-        {/* Features Section */}
-        <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 mb-16">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-purple-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Target className="w-8 h-8 text-purple-600" />
+          <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8">
+            <div className="grid gap-6">
+              <div className="flex items-start gap-4">
+                <div className="bg-purple-100 rounded-full p-3">
+                  <Target className="w-6 h-6 text-purple-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">Precision Curation</h3>
+                  <p className="text-gray-600">AI-powered algorithms that learn your preferences</p>
+                </div>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">Precision Curation</h3>
-              <p className="text-gray-600">AI-powered algorithms that learn your preferences</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-pink-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Brain className="w-8 h-8 text-pink-600" />
+              <div className="flex items-start gap-4">
+                <div className="bg-pink-100 rounded-full p-3">
+                  <Brain className="w-6 h-6 text-pink-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">Smart Insights</h3>
+                  <p className="text-gray-600">Context and analysis, not just headlines</p>
+                </div>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">Smart Insights</h3>
-              <p className="text-gray-600">Context and analysis, not just headlines</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-purple-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Clock className="w-8 h-8 text-purple-600" />
+              <div className="flex items-start gap-4">
+                <div className="bg-purple-100 rounded-full p-3">
+                  <Clock className="w-6 h-6 text-purple-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">Time Efficient</h3>
+                  <p className="text-gray-600">Get informed in minutes, not hours</p>
+                </div>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">Time Efficient</h3>
-              <p className="text-gray-600">Get informed in minutes, not hours</p>
             </div>
           </div>
         </div>
