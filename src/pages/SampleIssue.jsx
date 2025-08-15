@@ -30,7 +30,7 @@ const SampleIssue = () => {
 
         <div className="bg-gray-50 rounded-2xl shadow-lg p-8 mb-8 border border-purple-100">
           <div className="border-b border-gray-200 pb-4 mb-4">
-            <div className="text-sm text-gray-500 mb-1">From: mubasharoneview@gmail.com</div>
+            <div className="text-sm text-gray-500 mb-1">From: contact@muba.today</div>
             <div className="text-sm text-gray-500 mb-1">To: you@email.com</div>
             <div className="text-lg font-bold">📰 Your Top 15 News Stories - Week of August 12, 2025</div>
           </div>

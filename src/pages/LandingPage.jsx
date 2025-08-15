@@ -111,12 +111,12 @@ const LandingPage = () => {
               </button>
               <button
                 onClick={() => {
-                  navigate('/sample-issue');
+                  navigate('/contact');
                   setMobileMenuOpen(false);
                 }}
                 className="block w-full text-left px-3 py-2 text-slate-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg font-medium"
               >
-                Sample Issue
+                Contact Us
               </button>
               <button
                 onClick={() => {
@@ -159,10 +159,10 @@ const LandingPage = () => {
                   <Target className="w-5 h-5" /> Build My News Profile
                 </button>
                 <button
-                  onClick={() => navigate('/sample-issue')}
+                  onClick={() => navigate('/contact')}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-300 text-slate-800 bg-white hover:bg-slate-50"
                 >
-                  <Eye className="w-5 h-5" /> See Sample Issue
+                  <Eye className="w-5 h-5" /> Contact Us
                 </button>
               </div>
             </div>
