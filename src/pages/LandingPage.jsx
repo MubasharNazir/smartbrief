@@ -304,12 +304,12 @@ const LandingPage = () => {
           </p>
           <button
             onClick={() => navigate('/assessment')}
-            className="group relative bg-gradient-to-r from-red-500 via-pink-600 to-purple-500 px-16 py-8 rounded-2xl font-bold text-2xl hover:shadow-2xl transition-all transform hover:scale-105 mb-6 overflow-hidden"
+            className="group relative bg-gradient-to-r from-red-500 via-pink-600 to-purple-500 px-8 py-4 md:px-16 md:py-8 rounded-2xl font-bold text-lg md:text-2xl hover:shadow-2xl transition-all transform hover:scale-105 mb-6 overflow-hidden"
           >
-            <span className="relative z-10 flex items-center gap-4 text-white">
-              <Rocket className="w-8 h-8" />
+            <span className="relative z-10 flex items-center gap-2 md:gap-4 text-white">
+              <Rocket className="w-6 h-6 md:w-8 md:h-8" />
               Build My Muba Profile
-              <ChevronRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
+              <ChevronRight className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-2 transition-transform" />
             </span>
           </button>
           <div className="flex justify-center items-center gap-8 text-sm text-slate-600">
