@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   Star, ChevronRight, ChevronLeft, Check
@@ -8,6 +8,33 @@ const Assessment = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const navigate = useNavigate();
+
+  // Scroll to top whenever currentStep changes
+  useEffect(() => {
+    // Multiple scroll approaches for better compatibility
+    const scrollToTop = () => {
+      // Try smooth scroll first
+      if (window.scrollTo) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      
+      // Fallback approaches
+      setTimeout(() => {
+        if (window.pageYOffset > 0) {
+          window.scrollTo(0, 0);
+        }
+        // Also try scrolling the document body and html
+        if (document.body.scrollTop > 0) {
+          document.body.scrollTop = 0;
+        }
+        if (document.documentElement.scrollTop > 0) {
+          document.documentElement.scrollTop = 0;
+        }
+      }, 50);
+    };
+
+    scrollToTop();
+  }, [currentStep]);
 
   // Question flow remains the same as in your original component
 //   const questionFlow = [
@@ -205,6 +232,17 @@ const questionFlow = [
   const nextStep = () => {
     if (currentStep < questionFlow.length - 1) {
       setCurrentStep(currentStep + 1);
+      // Scroll to top when moving to next question - multiple approaches for better compatibility
+      setTimeout(() => {
+        // Try smooth scroll first
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Fallback for browsers that don't support smooth behavior
+        if (window.pageYOffset > 0) {
+          setTimeout(() => {
+            window.scrollTo(0, 0);
+          }, 100);
+        }
+      }, 10);
     } else {
       // Pass assessment answers to email collection
       navigate('/email-collection', { state: { assessmentAnswers: answers } });
@@ -214,6 +252,17 @@ const questionFlow = [
   const prevStep = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
+      // Scroll to top when moving to previous question - multiple approaches for better compatibility
+      setTimeout(() => {
+        // Try smooth scroll first
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Fallback for browsers that don't support smooth behavior
+        if (window.pageYOffset > 0) {
+          setTimeout(() => {
+            window.scrollTo(0, 0);
+          }, 100);
+        }
+      }, 10);
     } else {
       navigate('/');
     }
@@ -507,10 +556,10 @@ const renderQuestion = () => {
           <button
             onClick={prevStep}
             disabled={currentStep === 0}
-            className="flex items-center gap-2 px-6 py-3 text-gray-600 hover:text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="flex items-center gap-1 md:gap-2 px-3 py-1.5 md:px-6 md:py-3 text-gray-600 hover:text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-xs md:text-base"
           >
-            <ChevronLeft className="w-5 h-5" />
-            Previous
+            <ChevronLeft className="w-3 h-3 md:w-5 md:h-5" />
+            <span className="whitespace-nowrap">Previous</span>
           </button>
 
           <div className="text-center">
@@ -534,10 +583,15 @@ const renderQuestion = () => {
             disabled={!answers[questionFlow[currentStep].id] || 
               (questionFlow[currentStep].type === 'multiple_choice' && 
                answers[questionFlow[currentStep].id]?.length === 0)}
-            className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg font-semibold hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:from-purple-500 hover:to-pink-400"
+            className="flex items-center justify-center gap-1 md:gap-2 px-3 py-1.5 md:px-8 md:py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg font-medium md:font-semibold hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:from-purple-500 hover:to-pink-400 text-xs md:text-base min-w-0"
           >
-            {currentStep === questionFlow.length - 1 ? 'Complete Profile' : 'Next Question'}
-            <ChevronRight className="w-5 h-5" />
+            <span className="whitespace-nowrap">
+              {currentStep === questionFlow.length - 1 ? 'Complete' : 'Next'}
+              <span className="hidden sm:inline">
+                {currentStep === questionFlow.length - 1 ? ' Profile' : ' Question'}
+              </span>
+            </span>
+            <ChevronRight className="w-3 h-3 md:w-5 md:h-5 flex-shrink-0" />
           </button>
         </div>
       </div>
