@@ -323,10 +323,10 @@ const LandingPage = () => {
         )}
       </header>
 
-      <div className="relative container mx-auto px-4 pt-8 md:pt-12 pb-12 mt-4 md:mt-6">
+      <div className="relative container mx-auto px-6 pt-8 md:pt-12 pb-12 mt-4 md:mt-6 max-w-7xl">
         {/* Hero Section */}
-        <section className="rounded-3xl mb-16 md:mb-20">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <section className="mb-24 md:mb-32">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left copy */}
             <div className="max-w-2xl">
               {/* Trust indicator */}
@@ -347,18 +347,18 @@ const LandingPage = () => {
               
               {/* Value proposition cards */}
               <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="bg-white border border-slate-200 rounded-lg p-4 text-center">
+                <div className="bg-white border border-slate-200 rounded-lg p-4 text-center shadow-sm">
                   <div className="text-2xl font-bold text-purple-600 mb-1">10 stories</div>
                   <div className="text-sm text-slate-600">Curated for you</div>
                 </div>
-                <div className="bg-white border border-slate-200 rounded-lg p-4 text-center">
+                <div className="bg-white border border-slate-200 rounded-lg p-4 text-center shadow-sm">
                   <div className="text-2xl font-bold text-pink-500 mb-1">1000+</div>
                   <div className="text-sm text-slate-600">Articles analyzed</div>
                 </div>
               </div>
 
               {/* How it works preview */}
-              <div className="bg-gradient-to-r from-slate-50 to-purple-50 rounded-xl p-4 mb-8">
+              <div className="bg-gradient-to-r from-slate-50 to-purple-50 rounded-xl p-4 mb-8 border border-slate-100">
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-1">
                     <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
@@ -384,7 +384,7 @@ const LandingPage = () => {
                   onClick={() => navigate('/assessment')}
                   className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all hover:scale-[1.02] text-lg"
                 >
-                  <Rocket className="w-5 h-5" /> Start My 2-Min Quiz
+                  <Rocket className="w-5 h-5" /> Get Personalized News
                 </button>
                 <button
                   onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
@@ -537,286 +537,401 @@ const LandingPage = () => {
           </div>
         </section>
 
-        {/* Solution Features */}
-        <div id="features" className="text-center mt-50 md:mt-60">
-          <div className="mb-16">
-            <h2 className="text-5xl font-bold text-slate-900 mb-6">Why Choose Muba?</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Discover the features that make Muba the smartest way to stay informed
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8 mb-24 md:mb-32">
-            <div className="group bg-white rounded-3xl p-8 text-center border border-slate-200 hover:shadow-md transition-all duration-300">
-              <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                <Brain className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-slate-900">AI-Powered Curation</h3>
-              <p className="text-slate-700 leading-relaxed">Our advanced AI analyzes thousands of sources and selects only the stories that match your unique interests and preferences.</p>
-              <div className="mt-6 text-sm text-purple-700 bg-purple-50 rounded-lg px-4 py-2">
-                🔥 Saves 2-3 hours per week
-              </div>
-            </div>
+        {/* Features Section */}
+        <section id="features" className="mb-24 md:mb-32">
+          <div className="relative bg-gradient-to-br from-slate-50 via-purple-50/30 to-pink-50/30 rounded-3xl overflow-hidden">
+            {/* Background decorations */}
+            <div className="absolute top-10 left-10 w-32 h-32 bg-purple-200/20 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-10 right-10 w-32 h-32 bg-pink-200/20 rounded-full blur-2xl"></div>
             
-            <div className="group bg-white rounded-3xl p-8 text-center border border-slate-200 hover:shadow-md transition-all duration-300">
-              <div className="bg-gradient-to-r from-pink-400 to-purple-500 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                <Calendar className="w-10 h-10 text-white" />
+            <div className="relative px-6 md:px-12 py-16 md:py-20">
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-pink-100 border border-purple-200 rounded-full px-6 py-3 mb-8">
+                  <Sparkles className="w-5 h-5 text-purple-600" />
+                  <span className="font-semibold text-purple-800">Why Choose Muba?</span>
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+                  Transform Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">News Experience</span>
+                </h2>
+                <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                  Discover the features that make Muba the smartest way to stay informed in the digital age
+                </p>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-slate-900">Perfect Timing</h3>
-              <p className="text-slate-700 leading-relaxed">Delivered every Monday at 7 AM, giving you the perfect start to your week with everything you need to know.</p>
-              <div className="mt-6 text-sm text-pink-700 bg-pink-50 rounded-lg px-4 py-2">
-                ⏰ 94% open rate on Mondays
-              </div>
-            </div>
-            
-            <div className="group bg-white rounded-3xl p-8 text-center border border-slate-200 hover:shadow-md transition-all duration-300">
-              <div className="bg-gradient-to-r from-green-400 to-emerald-400 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                <Target className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-slate-900">Zero Fluff</h3>
-              <p className="text-slate-700 leading-relaxed">Only the top 10 most relevant stories. No clickbait, no noise, no endless scrolling. Just what matters to you.</p>
-              <div className="mt-6 text-sm text-emerald-700 bg-emerald-50 rounded-lg px-4 py-2">
-                🎯 10 stories = 100% relevance
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* How It Works - Enhanced */}
-        <div id="how-it-works" className="bg-white rounded-3xl p-12 text-center mb-24 md:mb-32 border border-slate-200 shadow-sm">
-          <div className="mb-16">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-              How Muba Works Its Magic
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Your journey to smarter news in just 4 simple steps
-            </p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="relative">
-              <div className="w-20 h-20 bg-gradient-to-r from-red-500 to-pink-600 rounded-full flex items-center justify-center mx-auto text-3xl font-bold mb-6 text-white shadow">1</div>
-              <h3 className="text-xl font-semibold mb-4 text-slate-900">Smart Profiling</h3>
-              <p className="text-slate-700 text-sm leading-relaxed">Take our intelligent 5-minute quiz that understands your news DNA better than you do</p>
-              <div className="absolute top-20 right-0 w-16 h-px bg-gradient-to-r from-pink-600 to-transparent hidden md:block"></div>
-            </div>
-            <div className="relative">
-              <div className="w-20 h-20 bg-gradient-to-r from-pink-600 to-purple-500 rounded-full flex items-center justify-center mx-auto text-3xl font-bold mb-6 text-white shadow">2</div>
-              <h3 className="text-xl font-semibold mb-4 text-slate-900">AI Analysis</h3>
-              <p className="text-slate-700 text-sm leading-relaxed">Our neural network creates your unique news fingerprint from 1000+ data points</p>
-              <div className="absolute top-20 right-0 w-16 h-px bg-gradient-to-r from-pink-600 to-transparent hidden md:block"></div>
-            </div>
-            <div className="relative">
-              <div className="w-20 h-20 bg-gradient-to-r from-pink-600 to-red-500 rounded-full flex items-center justify-center mx-auto text-3xl font-bold mb-6 text-white shadow">3</div>
-              <h3 className="text-xl font-semibold mb-4 text-slate-900">Weekly Curation</h3>
-              <p className="text-slate-700 text-sm leading-relaxed">Scan 10,000+ articles from 500+ sources to find your perfect 10 stories</p>
-              <div className="absolute top-20 right-0 w-16 h-px bg-gradient-to-r from-red-500 to-transparent hidden md:block"></div>
-            </div>
-            <div>
-              <div className="w-20 h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto text-3xl font-bold mb-6 text-white shadow">4</div>
-              <h3 className="text-xl font-semibold mb-4 text-slate-900">Perfect Delivery</h3>
-              <p className="text-slate-700 text-sm leading-relaxed">Monday 7 AM: Your personalized digest lands in your inbox, ready to fuel your week</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Final CTA */}
-        <div className="text-center bg-white rounded-3xl p-6 md:p-16 border border-slate-200 shadow-sm mb-12">
-          <div className="text-4xl md:text-6xl mb-4 md:mb-6">🧠</div>
-          <h3 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-slate-900">
-            Your Smarter News Journey Starts Now
-          </h3>
-          <p className="text-lg md:text-2xl text-slate-700 mb-6 md:mb-10 max-w-3xl mx-auto">
-            Join 12,847 professionals who start their week with perfectly curated news. 
-            <span className="text-green-700 font-semibold"> It takes 5 minutes to set up, saves hours every week.</span>
-          </p>
-          <button
-            onClick={() => navigate('/assessment')}
-            className="group relative bg-gradient-to-r from-red-500 via-pink-600 to-purple-500 px-8 py-4 md:px-16 md:py-8 rounded-2xl font-bold text-lg md:text-2xl hover:shadow-2xl transition-all transform hover:scale-105 mb-6 overflow-hidden"
-          >
-            <span className="relative z-10 flex items-center gap-2 md:gap-4 text-white">
-              <Rocket className="w-6 h-6 md:w-8 md:h-8" />
-              Get My Personalized News
-              <ChevronRight className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-2 transition-transform" />
-            </span>
-          </button>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm text-slate-600">
-            <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-green-600" />
-              <span>No spam guarantee</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-red-600" />
-              <span>5-minute setup</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Heart className="w-4 h-4 text-red-600" />
-              <span>Free forever</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Testimonials */}
-        <div id="testimonials" className="text-center mb-24 md:mb-32">
-          <div className="mb-16">
-            <h2 className="text-5xl font-bold text-slate-900 mb-6">What Our Readers Say</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Join thousands of professionals who've transformed their news experience
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold">SJ</div>
-                <div className="ml-3">
-                  <div className="font-semibold text-slate-900">Sarah Johnson</div>
-                  <div className="text-sm text-slate-600">Marketing Director</div>
+              
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="group bg-white/80 backdrop-blur-sm rounded-2xl p-8 text-center border border-slate-200 hover:border-purple-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
+                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl w-16 h-16 mx-auto mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Brain className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-slate-900">AI-Powered Curation</h3>
+                  <p className="text-slate-700 leading-relaxed mb-6">Our advanced AI analyzes thousands of sources and selects only the stories that match your unique interests and preferences.</p>
+                  <div className="inline-flex items-center gap-2 text-sm text-purple-700 bg-purple-50 rounded-full px-4 py-2">
+                    <span className="text-lg">🔥</span>
+                    <span className="font-semibold">Saves 2-3 hours per week</span>
+                  </div>
+                </div>
+                
+                <div className="group bg-white/80 backdrop-blur-sm rounded-2xl p-8 text-center border border-slate-200 hover:border-pink-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
+                  <div className="bg-gradient-to-r from-pink-400 to-purple-500 rounded-2xl w-16 h-16 mx-auto mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Calendar className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-slate-900">Perfect Timing</h3>
+                  <p className="text-slate-700 leading-relaxed mb-6">Delivered on your schedule - daily, weekly, or monthly. Choose what works best for your lifestyle and stay perfectly informed.</p>
+                  <div className="inline-flex items-center gap-2 text-sm text-pink-700 bg-pink-50 rounded-full px-4 py-2">
+                    <span className="text-lg">⏰</span>
+                    <span className="font-semibold">Your schedule, your choice</span>
+                  </div>
+                </div>
+                
+                <div className="group bg-white/80 backdrop-blur-sm rounded-2xl p-8 text-center border border-slate-200 hover:border-emerald-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
+                  <div className="bg-gradient-to-r from-emerald-400 to-green-500 rounded-2xl w-16 h-16 mx-auto mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Target className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-slate-900">Zero Fluff</h3>
+                  <p className="text-slate-700 leading-relaxed mb-6">Only the top 10 most relevant stories. No clickbait, no noise, no endless scrolling. Just what matters to you.</p>
+                  <div className="inline-flex items-center gap-2 text-sm text-emerald-700 bg-emerald-50 rounded-full px-4 py-2">
+                    <span className="text-lg">🎯</span>
+                    <span className="font-semibold">10 stories = 100% relevance</span>
+                  </div>
                 </div>
               </div>
-              <div className="text-yellow-500 mb-3">★★★★★</div>
-              <p className="text-slate-700 text-sm italic">"Finally, news that doesn't waste my time. I actually look forward to Monday mornings now!"</p>
-            </div>
-            
-            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-400 rounded-full flex items-center justify-center text-white font-bold">MR</div>
-                <div className="ml-3">
-                  <div className="font-semibold text-slate-900">Mike Rodriguez</div>
-                  <div className="text-sm text-slate-600">Tech Entrepreneur</div>
-                </div>
-              </div>
-              <div className="text-yellow-500 mb-3">★★★★★</div>
-              <p className="text-slate-700 text-sm italic">"Muba saved me 3 hours a week. The AI actually gets what I care about."</p>
-            </div>
-            
-            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white font-bold">AL</div>
-                <div className="ml-3">
-                  <div className="font-semibold text-slate-900">Anna Lee</div>
-                  <div className="text-sm text-slate-600">Financial Analyst</div>
-                </div>
-              </div>
-              <div className="text-yellow-500 mb-3">★★★★★</div>
-              <p className="text-slate-700 text-sm italic">"Best decision I made this year. Now I'm the most informed person in every meeting."</p>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Footer */}
-        <footer className="bg-slate-50 border-t border-slate-200 py-16">
-          <div className="container mx-auto px-4">
+        {/* How It Works Section */}
+        <section id="how-it-works" className="mb-24 md:mb-32">
+          <div className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 rounded-3xl overflow-hidden">
+            {/* Background patterns */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute top-10 left-10 w-64 h-64 bg-purple-500 rounded-full blur-3xl animate-pulse"></div>
+              <div className="absolute bottom-10 right-10 w-64 h-64 bg-pink-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+            </div>
+            
+            <div className="relative px-6 md:px-12 py-12 md:py-16 text-center">
+              <div className="mb-12">
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-8">
+                  <Zap className="w-5 h-5 text-yellow-400" />
+                  <span className="font-semibold text-white">How It Works</span>
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
+                  How Muba Works Its <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-400">Magic</span>
+                </h2>
+                <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                  Your journey to smarter news consumption in just 4 simple steps
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-4 gap-8 relative">
+                {/* Connection line */}
+                <div className="hidden md:block absolute top-10 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+                
+                {[
+                  {
+                    number: 1,
+                    title: "Smart Profiling",
+                    description: "Take our intelligent 5-minute quiz that understands your news DNA better than you do",
+                    gradient: "from-red-500 to-pink-600",
+                    lineColor: "from-pink-600 to-transparent"
+                  },
+                  {
+                    number: 2,
+                    title: "AI Analysis", 
+                    description: "Our neural network creates your unique news fingerprint from 1000+ data points",
+                    gradient: "from-pink-600 to-purple-500",
+                    lineColor: "from-purple-500 to-transparent"
+                  },
+                  {
+                    number: 3,
+                    title: "Smart Curation",
+                    description: "Scan articles from 500+ sources to find your perfect 10 stories based on your interests", 
+                    gradient: "from-purple-500 to-blue-500",
+                    lineColor: "from-blue-500 to-transparent"
+                  },
+                  {
+                    number: 4,
+                    title: "Flexible Delivery",
+                    description: "Your personalized digest delivered on your schedule - daily, weekly, or monthly",
+                    gradient: "from-blue-500 to-emerald-500",
+                    lineColor: ""
+                  }
+                ].map((step, index) => (
+                  <div key={step.number} className="group relative">
+                    <div className="relative">
+                      <div className={`w-20 h-20 bg-gradient-to-r ${step.gradient} rounded-full flex items-center justify-center mx-auto text-3xl font-bold mb-6 text-white shadow-2xl group-hover:scale-110 transition-all duration-300`}>
+                        {step.number}
+                      </div>
+                      {step.lineColor && (
+                        <div className={`absolute top-10 left-full w-8 h-0.5 bg-gradient-to-r ${step.lineColor} hidden md:block`}></div>
+                      )}
+                    </div>
+                    <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 group-hover:bg-white/10 transition-all duration-300">
+                      <h3 className="text-xl font-semibold mb-4 text-white">{step.title}</h3>
+                      <p className="text-slate-300 text-sm leading-relaxed">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action Section */}
+        <section className="mb-24 md:mb-32">
+          <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl overflow-hidden border border-slate-700/50">
+            {/* Subtle background decoration */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/5 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-600/5 rounded-full blur-3xl"></div>
+            
+            <div className="relative text-center px-6 md:px-12 py-16 md:py-20">
+              {/* Trust indicator */}
+              <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-2 mb-8">
+                <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                <span className="text-emerald-300 text-sm font-medium">Trusted by 12,847+ professionals</span>
+              </div>
+              
+              {/* Main headline */}
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
+                Your Smarter News Journey
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Starts Now</span>
+              </h2>
+              
+              {/* Value proposition */}
+              <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Join thousands of professionals who get perfectly curated news on their schedule. 
+                <span className="text-white font-semibold"> Choose daily, weekly, or monthly delivery. 5 minutes to setup, hours saved.</span>
+              </p>
+              
+              {/* Key metrics */}
+              <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mb-10">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-400 mb-1">5 min</div>
+                  <div className="text-xs text-slate-400">Setup</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-pink-400 mb-1">10</div>
+                  <div className="text-xs text-slate-400">Top Stories</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-cyan-400 mb-1">Free</div>
+                  <div className="text-xs text-slate-400">Forever</div>
+                </div>
+              </div>
+              
+              {/* CTA Button */}
+              <div className="mb-8">
+                <button
+                  onClick={() => navigate('/assessment')}
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-500 hover:to-pink-400 text-white px-8 md:px-12 py-4 md:py-5 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+                >
+                  <Brain className="w-6 h-6" />
+                  Get My Personalized News
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+              
+              {/* Trust badges */}
+              <div className="flex flex-wrap justify-center items-center gap-4 text-sm">
+                <div className="flex items-center gap-2 text-slate-400">
+                  <Shield className="w-4 h-4 text-emerald-400" />
+                  <span>No spam guarantee</span>
+                </div>
+                <div className="flex items-center gap-2 text-slate-400">
+                  <Clock className="w-4 h-4 text-blue-400" />
+                  <span>5-minute setup</span>
+                </div>
+                <div className="flex items-center gap-2 text-slate-400">
+                  <CheckCircle className="w-4 h-4 text-purple-400" />
+                  <span>Free forever</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section id="testimonials" className="mb-24 md:mb-32">
+          <div className="relative bg-gradient-to-br from-slate-50 via-purple-50/30 to-pink-50/30 rounded-3xl overflow-hidden">
+            {/* Background decorations */}
+            <div className="absolute top-10 left-10 w-32 h-32 bg-purple-200/20 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-10 right-10 w-32 h-32 bg-pink-200/20 rounded-full blur-2xl"></div>
+            
+            <div className="relative text-center px-6 md:px-12 py-12 md:py-16">
+              <div className="mb-12">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-100 to-orange-100 border border-yellow-200 rounded-full px-6 py-3 mb-6">
+                  <Star className="w-5 h-5 text-yellow-600" />
+                  <span className="font-semibold text-yellow-800">Customer Love</span>
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+                  What Our Readers <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500">Say</span>
+                </h2>
+                <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                  Join thousands of professionals who've transformed their news experience
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-3 gap-8">
+                {[
+                  {
+                    initials: "SJ",
+                    name: "Sarah Johnson",
+                    role: "Marketing Director",
+                    quote: "Finally, news that doesn't waste my time. I get exactly what I need when I need it! The AI perfectly understands what matters to me.",
+                    gradient: "from-blue-400 to-purple-400",
+                    topBorder: "from-blue-400 to-purple-400",
+                    quoteBg: "text-blue-100"
+                  },
+                  {
+                    initials: "MR", 
+                    name: "Mike Rodriguez",
+                    role: "Tech Entrepreneur",
+                    quote: "Muba saved me 3 hours a week. The AI actually gets what I care about. Best productivity tool I've discovered this year!",
+                    gradient: "from-green-400 to-emerald-400",
+                    topBorder: "from-green-400 to-emerald-400", 
+                    quoteBg: "text-green-100"
+                  },
+                  {
+                    initials: "AL",
+                    name: "Anna Lee", 
+                    role: "Financial Analyst",
+                    quote: "Best decision I made this year. Now I'm the most informed person in every meeting. The curation quality is incredible!",
+                    gradient: "from-purple-400 to-pink-400",
+                    topBorder: "from-purple-400 to-pink-400",
+                    quoteBg: "text-purple-100"
+                  }
+                ].map((testimonial, index) => (
+                  <div key={index} className="group bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-slate-200 hover:border-purple-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 relative overflow-hidden">
+                    <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${testimonial.topBorder}`}></div>
+                    
+                    <div className="flex items-center mb-6">
+                      <div className={`w-16 h-16 bg-gradient-to-r ${testimonial.gradient} rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg`}>
+                        {testimonial.initials}
+                      </div>
+                      <div className="ml-4 text-left">
+                        <div className="font-bold text-slate-900 text-lg">{testimonial.name}</div>
+                        <div className="text-slate-600">{testimonial.role}</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-center mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                    
+                    <p className="text-slate-700 italic leading-relaxed">
+                      "{testimonial.quote}"
+                    </p>
+                    
+                    <div className={`absolute bottom-4 right-4 text-6xl ${testimonial.quoteBg} opacity-50`}>"</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer Section */}
+        <footer className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-10 left-10 w-32 h-32 bg-purple-500 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-10 right-10 w-32 h-32 bg-pink-500 rounded-full blur-2xl"></div>
+          </div>
+          
+          <div className="relative px-6 md:px-12 py-16 md:py-20">
             <div className="grid md:grid-cols-4 gap-8 mb-12">
-              {/* Company Info */}
               <div className="md:col-span-2">
-                <div className="flex items-center gap-3 mb-4">
-                  {/* New Footer Logo with muba.today.svg */}
+                <div className="flex items-center gap-3 mb-6">
                   <img 
                     src="/muba.today.svg" 
                     alt="Muba.today Logo" 
-                    className="h-6 w-auto"
+                    className="h-8 w-auto filter brightness-0 invert"
                   />
-                  
-                  {/* Previous footer logo code - commented out
-                  <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full w-10 h-10 flex items-center justify-center shadow">
-                    <Mail className="w-5 h-5 text-white" />
-                  </div>
-                  <span className="text-xl font-bold text-slate-900">Muba</span>
-                  */}
                 </div>
-                <p className="text-slate-600 mb-4 max-w-md">
+                <p className="text-slate-300 mb-6 max-w-md leading-relaxed text-lg">
                   Your AI-powered news companion. Get the top 10 stories that matter to you, 
-                  delivered every Monday morning. No fluff, just clarity.
+                  delivered on your schedule - daily, weekly, or monthly. <span className="text-white font-semibold">No fluff, just clarity.</span>
                 </p>
+                
                 <div className="flex space-x-4">
-                  <button className="text-slate-400 hover:text-red-500 transition-colors">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                    </svg>
-                  </button>
-                  <button className="text-slate-400 hover:text-red-500 transition-colors">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
-                    </svg>
-                  </button>
-                  <button className="text-slate-400 hover:text-red-500 transition-colors">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.047-1.852-3.047-1.853 0-2.136 1.445-2.136 2.939v5.677H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                  </button>
+                  {[
+                    {
+                      icon: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.047-1.852-3.047-1.853 0-2.136 1.445-2.136 2.939v5.677H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
+                      gradient: "hover:from-blue-600 hover:to-blue-500"
+                    }
+                  ].map((social, index) => (
+                    <button key={index} className={`group w-12 h-12 bg-slate-800 ${social.gradient} rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg`}>
+                      <svg className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                        <path d={social.icon} />
+                      </svg>
+                    </button>
+                  ))}
                 </div>
               </div>
 
-              {/* Quick Links */}
               <div>
-                <h4 className="font-semibold text-slate-900 mb-4">Product</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <button 
-                      onClick={() => document.getElementById('features').scrollIntoView({ behavior: 'smooth' })}
-                      className="text-slate-600 hover:text-blue-600 transition-colors text-left"
-                    >
-                      Features
-                    </button>
-                  </li>
-                  <li>
-                    <button 
-                      onClick={() => document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })}
-                      className="text-slate-600 hover:text-blue-600 transition-colors text-left"
-                    >
-                      How It Works
-                    </button>
-                  </li>
+                <h4 className="font-semibold text-white mb-6 text-lg">Product</h4>
+                <ul className="space-y-4">
+                  {[
+                    { text: "Features", action: () => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) },
+                    { text: "How It Works", action: () => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }) }
+                  ].map((link, index) => (
+                    <li key={index}>
+                      <button 
+                        onClick={link.action}
+                        className="text-slate-400 hover:text-white transition-all duration-300 text-left group flex items-center gap-2"
+                      >
+                        <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        {link.text}
+                      </button>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              {/* Company */}
               <div>
-                <h4 className="font-semibold text-slate-900 mb-4">Company</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <button 
-                      onClick={() => navigate('/about')} 
-                      className="text-slate-600 hover:text-purple-600 transition-colors text-left"
-                    >
-                      About
-                    </button>
-                  </li>
-                  <li>
-                    <button 
-                      onClick={() => navigate('/contact')} 
-                      className="text-slate-600 hover:text-purple-600 transition-colors text-left"
-                    >
-                      Contact
-                    </button>
-                  </li>
+                <h4 className="font-semibold text-white mb-6 text-lg">Company</h4>
+                <ul className="space-y-4">
+                  {[
+                    { text: "About", action: () => navigate('/about') },
+                    { text: "Contact", action: () => navigate('/contact') }
+                  ].map((link, index) => (
+                    <li key={index}>
+                      <button 
+                        onClick={link.action}
+                        className="text-slate-400 hover:text-white transition-all duration-300 text-left group flex items-center gap-2"
+                      >
+                        <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        {link.text}
+                      </button>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
 
-            {/* Bottom Section */}
-            <div className="pt-8 border-t border-slate-200">
-              <div className="flex flex-col md:flex-row justify-between items-center">
-                <div className="text-slate-600 text-sm mb-4 md:mb-0">
-                  © 2024 Muba. All rights reserved.
+            <div className="pt-8 border-t border-slate-700">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div className="text-slate-400 text-sm">
+                  © 2025 <span className="text-white font-semibold">Muba</span>. All rights reserved.
                 </div>
                 <div className="flex space-x-6 text-sm">
-                  <button 
-                    onClick={() => navigate('/privacy-policy')} 
-                    className="text-slate-600 hover:text-blue-600 transition-colors"
-                  >
-                    Privacy Policy
-                  </button>
-                  <button 
-                    onClick={() => navigate('/terms-of-service')}
-                    className="text-slate-600 hover:text-blue-600 transition-colors"
-                  >
-                    Terms of Service
-                  </button>
-                  <button 
-                    onClick={() => navigate('/cookie-policy')}
-                    className="text-slate-600 hover:text-blue-600 transition-colors"
-                  >
-                    Cookie Policy
-                  </button>
+                  {[
+                    { text: "Privacy Policy", action: () => navigate('/privacy-policy') },
+                    { text: "Terms of Service", action: () => navigate('/terms-of-service') },
+                    { text: "Cookie Policy", action: () => navigate('/cookie-policy') }
+                  ].map((link, index) => (
+                    <button 
+                      key={index}
+                      onClick={link.action}
+                      className="text-slate-400 hover:text-white transition-colors duration-300 hover:underline"
+                    >
+                      {link.text}
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
