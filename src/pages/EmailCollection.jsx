@@ -175,7 +175,7 @@ const countryOptions = [
             </div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Almost Done!</h2>
             <p className="text-gray-600 text-lg">
-              We've analyzed your preferences. Now let's set up your weekly news delivery.
+              We've analyzed your preferences. Now let's set up your personalized news delivery.
             </p>
           </div>
 
@@ -184,11 +184,11 @@ const countryOptions = [
             <ul className="space-y-2 text-blue-700 text-sm">
               <li className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4" />
-                <span>Top 10 personalized news stories every Monday at 7 AM</span>
+                <span>Top 10 personalized news stories on your chosen schedule</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4" />
-                <span>Stories curated from the past week based on your interests</span>
+                <span>Stories curated based on your interests and preferences</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4" />
@@ -229,7 +229,7 @@ const countryOptions = [
                 required
               />
               <p className="text-xs text-gray-500 mt-1">
-                We'll only use this to send your weekly news digest. No spam, ever.
+                We'll only use this to send your personalized news digest. No spam, ever.
               </p>
             </div>
 
@@ -251,7 +251,7 @@ const countryOptions = [
                 ))}
               </select>
               <p className="text-xs text-gray-500 mt-2">
-                Your weekly news will be delivered every Monday at 7:00 AM in your country's local time zone.
+                Your personalized news will be delivered at 7:00 AM in your country's local time zone on your chosen schedule.
               </p>
             </div>
 
@@ -263,11 +263,11 @@ const countryOptions = [
               <div className="text-sm text-gray-600">
                 <div className="flex items-center gap-2 mb-1">
                   <Check className="w-4 h-4 text-green-500" />
-                  <span>Every Monday at 7:00 AM</span>
+                  <span>Your choice - Daily, Weekly, or Monthly</span>
                 </div>
                 <div className="flex items-center gap-2 mb-1">
                   <Check className="w-4 h-4 text-green-500" />
-                  <span>Top 10 stories from the past week</span>
+                  <span>Top 10 stories from your chosen timeframe</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-green-500" />
@@ -308,7 +308,7 @@ const countryOptions = [
               </div>
               <p className="text-slate-600 mb-4 max-w-md">
                 Your AI-powered news companion. Get the top 10 stories that matter to you, 
-                delivered every Monday morning. No fluff, just clarity.
+                delivered on your schedule - daily, weekly, or monthly. No fluff, just clarity.
               </p>
               <div className="flex space-x-4">
                 <button className="text-slate-400 hover:text-red-500 transition-colors">
