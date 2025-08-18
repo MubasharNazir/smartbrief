@@ -3,11 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import { 
   Star, ChevronRight, ChevronLeft, Check
 } from 'lucide-react';
+import useClarity from '../hooks/useClarity';
 
 const Assessment = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [showComingSoon, setShowComingSoon] = useState(false);
   const navigate = useNavigate();
+  
+  // Initialize Clarity tracking
+  const { trackEvent, setUserProperties } = useClarity(process.env.REACT_APP_CLARITY_PROJECT_ID);
 
   // Scroll to top whenever currentStep changes
   useEffect(() => {
@@ -209,6 +214,17 @@ const questionFlow = [
     //   ]
     // },
     {
+      id: 'delivery_frequency',
+      type: 'single_choice',
+      title: "How often would you like your curated news?",
+      question: "",
+      options: [
+        { id: 'daily', text: "📰 Daily - Every morning at 7 AM", weight: { frequent: 3, daily: 3 } },
+        { id: 'weekly', text: "📅 Weekly - Every Monday at 7 AM", weight: { moderate: 3, weekly: 3 } },
+        { id: 'monthly', text: "📖 Monthly - First Monday of each month", weight: { digest: 3, monthly: 3 } }
+      ]
+    },
+    {
       id: 'reading_behavior',
       type: 'multiple_choice',
       title: "How do you read news?",
@@ -230,8 +246,22 @@ const questionFlow = [
   };
 
   const nextStep = () => {
+    // Track Clarity event for step progression
+    trackEvent('assessment_step_completed', {
+      step: currentStep + 1,
+      question_id: questionFlow[currentStep].id,
+      total_steps: questionFlow.length
+    });
+    
     if (currentStep < questionFlow.length - 1) {
       setCurrentStep(currentStep + 1);
+      
+      // Track next step started
+      trackEvent('assessment_step_started', {
+        step: currentStep + 2,
+        question_id: questionFlow[currentStep + 1].id
+      });
+      
       // Scroll to top when moving to next question - multiple approaches for better compatibility
       setTimeout(() => {
         // Try smooth scroll first
@@ -244,6 +274,18 @@ const questionFlow = [
         }
       }, 10);
     } else {
+      // Track assessment completion
+      trackEvent('assessment_completed', {
+        total_steps: questionFlow.length,
+        completion_time: Date.now()
+      });
+      
+      // Set user properties based on answers
+      setUserProperties({
+        assessment_completed: true,
+        user_segment: 'news_consumer'
+      });
+      
       // Pass assessment answers to email collection
       navigate('/email-collection', { state: { assessmentAnswers: answers } });
     }
@@ -320,6 +362,48 @@ const renderQuestion = () => {
                   </button>
                 );
               })}
+            </div>
+          </div>
+        );
+
+      case 'single_choice':
+        return (
+          <div className="space-y-4">
+            <p className="text-gray-600 mb-6">{question.question}</p>
+            <div className="space-y-3">
+              {question.options.map(option => (
+                <button
+                  key={option.id}
+                  onClick={() => {
+                    // Show coming soon popup for daily and monthly
+                    if (option.id === 'daily' || option.id === 'monthly') {
+                      setShowComingSoon(true);
+                    } else {
+                      handleAnswer(question.id, option.id);
+                    }
+                  }}
+                  className={`w-full p-4 rounded-xl border-2 text-left transition-all hover:shadow-md ${
+                    answers[question.id] === option.id 
+                      ? 'border-purple-500 bg-purple-50 text-purple-700' 
+                      : 'border-gray-200 hover:border-purple-300'
+                  } ${(option.id === 'daily' || option.id === 'monthly') ? 'relative' : ''}`}
+                >
+                  <div className="flex items-start space-x-3">
+                    <div className="text-xl">{option.text.split(' ')[0]}</div>
+                    <div className="flex-1">{option.text.substring(option.text.indexOf(' ') + 1)}</div>
+                    {(option.id === 'daily' || option.id === 'monthly') && (
+                      <div className="absolute top-2 right-2 bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded-full">
+                        Coming Soon
+                      </div>
+                    )}
+                    {answers[question.id] === option.id && (
+                      <div className="ml-auto text-purple-500">
+                        <Check className="w-5 h-5" />
+                      </div>
+                    )}
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
         );
@@ -493,6 +577,27 @@ const renderQuestion = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Coming Soon Popup */}
+      {showComingSoon && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl p-6 max-w-md mx-4 shadow-xl">
+            <div className="text-center">
+              <div className="text-4xl mb-4">🚀</div>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">Coming Soon!</h3>
+              <p className="text-gray-600 mb-4">
+                Daily and monthly options are coming soon. For now, you can choose weekly delivery to get your personalized news every Monday morning.
+              </p>
+              <button
+                onClick={() => setShowComingSoon(false)}
+                className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-all"
+              >
+                Got it!
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* App Bar */}
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-sm border-b border-slate-200">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">

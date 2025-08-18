@@ -148,13 +148,37 @@ const TermsOfService = () => {
             </div>
           </div>
 
-          {/* Privacy Policy */}
+          {/* Data Usage and Privacy */}
           <div className="bg-white rounded-2xl border border-gray-200 p-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">6. Privacy Policy</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">6. Data Usage and Privacy</h2>
             <div className="space-y-4 text-gray-600">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <h3 className="font-semibold text-green-800 mb-2">Our Data Promise</h3>
+                <p className="text-green-700">
+                  We <strong>never sell your personal data</strong> to third parties. Your information is used solely to improve your experience and provide you with relevant content.
+                </p>
+              </div>
+              <div className="space-y-3">
+                <h3 className="font-semibold text-gray-800">How We Use Your Data</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Personalizing your news feed based on your preferences</li>
+                  <li>Sending you newsletters and updates about topics you're interested in</li>
+                  <li>Promoting relevant features, content, and services within Muba</li>
+                  <li>Analyzing usage patterns to improve our service quality</li>
+                  <li>Communicating with you about your account and service updates</li>
+                </ul>
+              </div>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <h3 className="font-semibold text-blue-800 mb-2">Promotional Communications</h3>
+                <p className="text-blue-700">
+                  By using our service, you consent to receive promotional communications from us about new features, 
+                  relevant content recommendations, and service improvements. You can opt out of promotional emails at any time 
+                  through your account settings or unsubscribe links.
+                </p>
+              </div>
               <p>
                 Your privacy is important to us. Please review our Privacy Policy, which also governs your use of the Service, 
-                to understand our practices.
+                to understand our complete data practices.
               </p>
               <button
                 onClick={() => navigate('/privacy-policy')}
@@ -167,7 +191,7 @@ const TermsOfService = () => {
 
           {/* Termination */}
           <div className="bg-white rounded-2xl border border-gray-200 p-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">7. Termination</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">8. Termination</h2>
             <div className="space-y-4 text-gray-600">
               <p>
                 We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, 
@@ -183,7 +207,7 @@ const TermsOfService = () => {
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
               <AlertTriangle className="w-6 h-6 text-amber-600 mr-3" />
-              8. Disclaimer
+              9. Disclaimer
             </h2>
             <div className="space-y-4 text-gray-600">
               <p>
@@ -198,7 +222,7 @@ const TermsOfService = () => {
 
           {/* Governing Law */}
           <div className="bg-white rounded-2xl border border-gray-200 p-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">9. Governing Law</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">10. Governing Law</h2>
             <div className="space-y-4 text-gray-600">
               <p>
                 These Terms shall be interpreted and governed by the laws of the United States, without regard to its conflict of law provisions.
@@ -211,7 +235,7 @@ const TermsOfService = () => {
 
           {/* Changes to Terms */}
           <div className="bg-white rounded-2xl border border-gray-200 p-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">10. Changes to Terms</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">11. Changes to Terms</h2>
             <div className="space-y-4 text-gray-600">
               <p>
                 We reserve the right, at our sole discretion, to modify or replace these Terms at any time. 

@@ -133,6 +133,22 @@ const PrivacyPolicy = () => {
                   </ul>
                 </div>
                 <div className="bg-purple-50 p-4 rounded-lg">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">Promotional Communications</h3>
+                  <ul className="list-disc list-inside text-gray-600 space-y-1">
+                    <li>Send you personalized content recommendations based on your interests</li>
+                    <li>Notify you about new features that match your preferences</li>
+                    <li>Share relevant news topics and trending stories in your areas of interest</li>
+                    <li>Invite you to participate in surveys or feedback sessions</li>
+                    <li>Promote premium features and service upgrades</li>
+                  </ul>
+                  <div className="mt-3 p-3 bg-white border border-purple-200 rounded">
+                    <p className="text-sm text-purple-800 font-medium">
+                      <strong>Important:</strong> We never sell your personal data to third parties. 
+                      All promotional communications come directly from Muba and are based on your preferences and usage patterns.
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-green-50 p-4 rounded-lg">
                   <h3 className="text-lg font-semibold text-gray-800 mb-2">Improvement</h3>
                   <ul className="list-disc list-inside text-gray-600 space-y-1">
                     <li>Analyze usage patterns to improve our service</li>
@@ -151,8 +167,12 @@ const PrivacyPolicy = () => {
                   <AlertTriangle className="w-5 h-5 text-red-500" />
                   <span className="font-semibold text-red-800">We Never Sell Your Data</span>
                 </div>
-                <p className="text-red-700 text-sm">
+                <p className="text-red-700 text-sm mb-2">
                   We do not sell, rent, or trade your personal information to third parties for marketing purposes.
+                </p>
+                <p className="text-red-700 text-sm">
+                  <strong>However:</strong> We do use your data to send you promotional content and recommendations 
+                  that are relevant to your interests, directly from Muba. You can opt out of these communications at any time.
                 </p>
               </div>
               <div className="space-y-4">

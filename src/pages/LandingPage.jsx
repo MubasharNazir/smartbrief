@@ -1,15 +1,206 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Target, Eye, Brain, Calendar, Rocket, ChevronRight, Shield, Clock, Heart, Menu, X
+  Target, Eye, Brain, Calendar, Rocket, ChevronRight, Shield, Clock, Heart, Menu, X,
+  CheckCircle, Sparkles, Zap, Filter, Star
 } from 'lucide-react';
 
 const LandingPage = () => {
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [articleCounter, setArticleCounter] = useState(0);
+  const [animationKey, setAnimationKey] = useState(0);
+
+  // Article counter animation
+  useEffect(() => {
+    const animateCounter = () => {
+      const target = 1000;
+      const duration = 3000;
+      const startTime = Date.now();
+      
+      const updateCounter = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const currentValue = Math.floor(target * easeOut);
+        
+        setArticleCounter(currentValue);
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        }
+      };
+      
+      requestAnimationFrame(updateCounter);
+    };
+    
+    const timer = setTimeout(animateCounter, 1000);
+    return () => clearTimeout(timer);
+  }, [animationKey]);
+
+  // Restart animations periodically
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimationKey(prev => prev + 1);
+      setArticleCounter(0);
+    }, 8000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white text-slate-900 overflow-hidden">
+      {/* Custom animations */}
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { 
+            transform: translateX(-3px) translateY(0px); 
+            opacity: 0.8; 
+          }
+          50% { 
+            transform: translateX(2px) translateY(-4px); 
+            opacity: 1; 
+          }
+        }
+        @keyframes slideUp {
+          0% { 
+            transform: translateY(15px) scale(0.95); 
+            opacity: 0; 
+          }
+          100% { 
+            transform: translateY(0px) scale(1); 
+            opacity: 1; 
+          }
+        }
+        @keyframes slideInFromLeft {
+          0% {
+            transform: translateX(-30px) scale(0.9);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(0px) scale(1);
+            opacity: 1;
+          }
+        }
+        @keyframes slideInFromRight {
+          0% {
+            transform: translateX(30px) scale(0.9);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(0px) scale(1);
+            opacity: 1;
+          }
+        }
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.02);
+          }
+        }
+        @keyframes aiPulse {
+          0%, 100% { 
+            transform: scale(1); 
+          }
+          50% { 
+            transform: scale(1.1); 
+          }
+        }
+        @keyframes ripple {
+          0% {
+            transform: scale(0.8);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(1.4);
+            opacity: 0;
+          }
+        }
+        @keyframes fadeInUp {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes slideInLeft {
+          0% {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        @keyframes particleFloat {
+          0% {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 0;
+          }
+          10% {
+            opacity: 1;
+          }
+          90% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(-100px) rotate(360deg);
+            opacity: 0;
+          }
+        }
+        @keyframes countUp {
+          0% { opacity: 0; }
+          50% { opacity: 1; }
+          100% { opacity: 1; }
+        }
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        .animate-slideUp {
+          animation: slideUp 0.7s ease-out forwards;
+          opacity: 0;
+        }
+        .animate-slideInFromLeft {
+          animation: slideInFromLeft 0.8s ease-out forwards;
+          opacity: 0;
+        }
+        .animate-slideInFromRight {
+          animation: slideInFromRight 0.8s ease-out forwards;
+          opacity: 0;
+        }
+        .animate-pulse-subtle {
+          animation: pulse 2s ease-in-out infinite;
+        }
+        .animate-ai-pulse {
+          animation: aiPulse 2s ease-in-out infinite;
+        }
+        .animate-ripple {
+          animation: ripple 2s infinite;
+        }
+        .animate-fadeInUp {
+          animation: fadeInUp 0.6s ease forwards;
+          opacity: 0;
+        }
+        .animate-slideInLeft {
+          animation: slideInLeft 0.6s ease forwards;
+          opacity: 0;
+        }
+        .animate-particle-float {
+          animation: particleFloat 6s infinite linear;
+        }
+        .animate-counter {
+          animation: countUp 3s ease-out;
+        }
+      `}</style>
+      
       {/* App Bar */}
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-sm border-b border-slate-200">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -132,79 +323,214 @@ const LandingPage = () => {
         )}
       </header>
 
-      <div className="relative container mx-auto px-4 pt-32 md:pt-40 pb-12 mt-15 md:mt-20">
+      <div className="relative container mx-auto px-4 pt-8 md:pt-12 pb-12 mt-4 md:mt-6">
         {/* Hero Section */}
         <section className="rounded-3xl mb-16 md:mb-20">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             {/* Left copy */}
             <div className="max-w-2xl">
-              <h1 className="text-slate-900 text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4 md:mb-6">
-          Imagine your own AI agent,
-              </h1>
-              <h2 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
-                that reads 1,000 news articles and tells you only what matters to you
-              </h2>
-              <p className="text-lg md:text-xl text-slate-700 mb-8">
-                {/* Get a Monday-morning brief of the top 10 stories tailored to your interests. No fluff. No noise. Just what matters to you. */}
-                {/* Imagine your own AI agent, that reads 1,000 news articles and tells you only what matters to you. */}
-              </p>
-              <div className="text-sm text-slate-600 mb-3">
-                Where your week is understood — Get Muba.
+              {/* Trust indicator */}
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-full px-4 py-2 mb-6">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium text-purple-700">AI-powered news curation</span>
               </div>
+              
+              <h1 className="text-slate-900 text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4 md:mb-6">
+                Your news, 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500"> perfectly curated.</span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-slate-700 mb-6 leading-relaxed">
+                Your personal AI reads <strong>1000+ articles</strong> and delivers only the 
+                <strong> top 10 stories</strong> that match your interests. Choose your frequency: daily, weekly, or monthly.
+              </p>
+              
+              {/* Value proposition cards */}
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="bg-white border border-slate-200 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-purple-600 mb-1">10 stories</div>
+                  <div className="text-sm text-slate-600">Curated for you</div>
+                </div>
+                <div className="bg-white border border-slate-200 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-pink-500 mb-1">1000+</div>
+                  <div className="text-sm text-slate-600">Articles analyzed</div>
+                </div>
+              </div>
+
+              {/* How it works preview */}
+              <div className="bg-gradient-to-r from-slate-50 to-purple-50 rounded-xl p-4 mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-1">
+                    <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">1</span>
+                    </div>
+                    <div className="w-8 h-8 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">2</span>
+                    </div>
+                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">3</span>
+                    </div>
+                  </div>
+                  <div className="text-sm text-slate-700">
+                    <span className="font-medium">Take 2-min quiz</span> → 
+                    <span className="font-medium"> AI learns your preferences</span> → 
+                    <span className="font-medium"> Get personalized briefings</span>
+                  </div>
+                </div>
+              </div>
+              
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <button
                   onClick={() => navigate('/assessment')}
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-transform hover:scale-[1.02]"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all hover:scale-[1.02] text-lg"
                 >
-                  <Target className="w-5 h-5" /> Build My News Profile
+                  <Rocket className="w-5 h-5" /> Start My 2-Min Quiz
                 </button>
                 <button
-                  onClick={() => navigate('/contact')}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-300 text-slate-800 bg-white hover:bg-slate-50"
+                  onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-slate-300 text-slate-800 bg-white hover:bg-slate-50 font-medium"
                 >
-                  <Eye className="w-5 h-5" /> Contact Us
+                  <Eye className="w-5 h-5" /> See How It Works
                 </button>
+              </div>
+              
+              <div className="mt-6 text-sm text-slate-500">
+                🚀 <strong>Free to start</strong> • No credit card required • 2-minute setup
               </div>
             </div>
 
-            {/* Right media */}
-            <div className="relative">
-              <div className="mx-auto w-full max-w-md rounded-3xl p-[3px] bg-gradient-to-r from-purple-600 to-pink-500 shadow-lg">
-                <div className="rounded-3xl bg-white relative">
-                  {/* Loading placeholder */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl flex items-center justify-center animate-pulse z-10">
-                    <div className="text-purple-400">
-                      <Brain className="w-16 h-16 animate-bounce" />
+            {/* Right media - News Processing Animation */}
+            <div className="relative flex justify-center">
+              <div className="w-full max-w-sm h-[600px] relative">
+                {/* Demo Container - matches exact design */}
+                <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 rounded-3xl p-1 backdrop-blur-2xl border border-white/20 relative overflow-hidden h-full">
+                  <div className="bg-gradient-to-b from-purple-50/10 via-white/10 to-pink-50/10 rounded-3xl p-6 backdrop-blur-2xl h-full relative overflow-hidden flex flex-col">
+                    
+                    {/* Floating Particles */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+                      {[10, 30, 70, 90].map((left, i) => (
+                        <div
+                          key={`particle-${animationKey}-${i}`}
+                          className="absolute w-1 h-1 bg-white/30 rounded-full animate-particle-float"
+                          style={{
+                            left: `${left}%`,
+                            animationDelay: `${i * 2}s`,
+                            animationDuration: `${6 + i}s`
+                          }}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Article Counter - top right */}
+                    <div className="absolute top-3 right-3 bg-white/10 px-3 py-1 rounded-full text-white text-xs font-semibold backdrop-blur-lg border border-white/20 z-10">
+                      <span className="text-yellow-300 text-sm font-bold">{articleCounter}</span>+ articles
+                    </div>
+
+                    {/* Topics Cloud */}
+                    <div className="flex-shrink-0 pt-4 pb-4 z-10">
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        {[
+                          { icon: '🗳', label: 'Election' },
+                          { icon: '📈', label: 'Markets' },
+                          { icon: '🌡', label: 'Climate' },
+                          { icon: '🚀', label: 'Tech' },
+                          { icon: '💻', label: 'AI' },
+                          { icon: '🌍', label: 'Startups' },
+                          { icon: '⚡', label: 'Trade' },
+                          { icon: '🛢', label: 'Energy' }
+                        ].map((topic, index) => (
+                          <div
+                            key={`topic-${animationKey}-${index}`}
+                            className="bg-white/15 text-white px-2 py-1 rounded-full text-xs font-medium border border-white/20 opacity-0 translate-y-5 animate-fadeInUp flex items-center gap-1"
+                            style={{
+                              animationDelay: `${index * 100}ms`,
+                              animationFillMode: 'forwards'
+                            }}
+                          >
+                            <span className="text-xs">{topic.icon}</span>
+                            <span className="text-xs">{topic.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* AI Processing Center */}
+                    <div className="flex-1 flex items-center justify-center relative z-10">
+                      {/* Processing Rings */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        {[80, 110, 140].map((size, index) => (
+                          <div
+                            key={index}
+                            className="absolute border-2 border-pink-400/30 rounded-full animate-ripple"
+                            style={{
+                              width: `${size}px`,
+                              height: `${size}px`,
+                              animationDelay: `${index * 0.5}s`
+                            }}
+                          />
+                        ))}
+                      </div>
+                      
+                      {/* AI Icon with badge */}
+                      <div className="relative z-10">
+                        <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl animate-pulse relative">
+                          ✨
+                        </div>
+                        {/* Small badge */}
+                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-yellow-400 text-black rounded-full flex items-center justify-center">
+                          <Zap className="w-2.5 h-2.5" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Personalized Stories Section */}
+                    <div className="flex-shrink-0 bg-white/10 rounded-xl p-4 backdrop-blur-lg border border-white/20 z-10">
+                      <div className="text-white font-semibold text-center mb-3 text-sm">
+                        Your Personalized Stories
+                      </div>
+                      
+                      {/* Stories List */}
+                      <div className="space-y-2">
+                        {[
+                          { category: 'POLITICS', title: 'Senate Infrastructure Bill', color: 'border-blue-500' },
+                          { category: 'FINANCE', title: 'Fed Rate Changes', color: 'border-green-500' },
+                          { category: 'TECH', title: 'AI Healthcare Breakthrough', color: 'border-purple-500' }
+                        ].map((story, index) => (
+                          <div
+                            key={`story-${animationKey}-${index}`}
+                            className={`bg-white/10 rounded-lg p-3 border-l-4 ${story.color} opacity-0 -translate-x-8 animate-slideInLeft hover:bg-white/15 hover:translate-x-1 transition-all duration-300 cursor-pointer group`}
+                            style={{
+                              animationDelay: `${3000 + index * 200}ms`,
+                              animationFillMode: 'forwards'
+                            }}
+                          >
+                            <div className="flex items-center justify-between">
+                              <div className="flex-1 min-w-0">
+                                <div className="text-white/70 text-xs uppercase tracking-wide mb-1 font-semibold">
+                                  ● {story.category}
+                                </div>
+                                <div className="text-white text-xs font-medium leading-relaxed truncate">
+                                  {story.title}
+                                </div>
+                              </div>
+                              <div className="text-white/40 group-hover:text-white/60 transition-colors flex-shrink-0 ml-2">
+                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Show more indicator */}
+                      <div className="text-center mt-3">
+                        <div className="text-white/60 text-xs">
+                          + 7 more stories
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  
-                  {/* Optimized image with modern formats */}
-                  <picture>
-                    <source srcSet="/ai2.png" type="image/webp" />
-                    <img
-                      src="/ai2.png"
-                      alt="Muba preview"
-                      className="w-full h-auto object-contain rounded-3xl relative z-20"
-                      loading="eager"
-                      decoding="async"
-                      onLoad={(e) => {
-                        e.target.style.opacity = '1';
-                        // Hide loading placeholder
-                        const placeholder = e.target.parentElement.querySelector('.animate-pulse');
-                        if (placeholder) placeholder.style.display = 'none';
-                      }}
-                      onError={(e) => {
-                        console.log('Image failed to load');
-                        // Hide loading placeholder on error too
-                        const placeholder = e.target.parentElement.querySelector('.animate-pulse');
-                        if (placeholder) placeholder.style.display = 'none';
-                      }}
-                      style={{
-                        opacity: '0',
-                        transition: 'opacity 0.5s ease-in-out'
-                      }}
-                    />
-                  </picture>
                 </div>
               </div>
             </div>
@@ -293,12 +619,12 @@ const LandingPage = () => {
         </div>
 
         {/* Final CTA */}
-        <div className="text-center bg-white rounded-3xl p-16 border border-slate-200 shadow-sm mb-12">
-          <div className="text-6xl mb-6">🧠</div>
-          <h3 className="text-5xl font-bold mb-6 text-slate-900">
+        <div className="text-center bg-white rounded-3xl p-6 md:p-16 border border-slate-200 shadow-sm mb-12">
+          <div className="text-4xl md:text-6xl mb-4 md:mb-6">🧠</div>
+          <h3 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-slate-900">
             Your Smarter News Journey Starts Now
           </h3>
-          <p className="text-2xl text-slate-700 mb-10 max-w-3xl mx-auto">
+          <p className="text-lg md:text-2xl text-slate-700 mb-6 md:mb-10 max-w-3xl mx-auto">
             Join 12,847 professionals who start their week with perfectly curated news. 
             <span className="text-green-700 font-semibold"> It takes 5 minutes to set up, saves hours every week.</span>
           </p>
@@ -308,11 +634,11 @@ const LandingPage = () => {
           >
             <span className="relative z-10 flex items-center gap-2 md:gap-4 text-white">
               <Rocket className="w-6 h-6 md:w-8 md:h-8" />
-              Build My Muba Profile
+              Get My Personalized News
               <ChevronRight className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-2 transition-transform" />
             </span>
           </button>
-          <div className="flex justify-center items-center gap-8 text-sm text-slate-600">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm text-slate-600">
             <div className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-green-600" />
               <span>No spam guarantee</span>
