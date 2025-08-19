@@ -73,6 +73,75 @@ const countryOptions = [
     return { interests: normalizedScores, preferences };
   };
 
+  // Function to send notification email to admin using EmailJS
+  const sendAdminNotification = async (userData, userProfile) => {
+    try {
+      // Using EmailJS to send notification email
+      const emailjsData = {
+        service_id: 'service_jbsvsf7',
+        template_id: 'template_d1iiv8m',  // Updated to existing template ID
+        user_id: 'YqyF5KFi6-yKQp7Hn',
+        template_params: {
+          name: userData.name,
+          time: new Date().toLocaleString(),
+          message: `New user profile completed:
+
+Name: ${userData.name}
+Email: ${userData.email}
+Country: ${userData.country}
+Registration Time: ${new Date().toLocaleString()}
+Primary Interests: ${userProfile.interests.slice(0, 3).map(i => i.category).join(', ')}
+Selected Topics: ${Object.entries(assessmentAnswers.news_categories || {})
+            .map(([category, topics]) => `${category}: ${topics.join(', ')}`)
+            .join('\n')}
+Profession: ${assessmentAnswers.profession?.join(', ') || 'Not specified'}
+Hobbies: ${assessmentAnswers.hobbies?.join(', ') || 'Not specified'}`
+        }
+      };
+
+      // Send email using EmailJS
+      console.log('Sending admin notification with data:', emailjsData);
+      
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailjsData)
+      });
+
+      console.log('EmailJS response status:', response.status);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('EmailJS error response:', errorText);
+        throw new Error(`EmailJS failed with status: ${response.status}, response: ${errorText}`);
+      }
+
+      console.log('✅ Admin notification sent successfully to engr.mubasharnazir@gmail.com');
+      
+      // Also log success message to alert user
+      alert('✅ Profile created successfully! Admin has been notified via email.');
+
+      // Alternative 2: Simple webhook notification (if you have webhook service)
+      // await fetch('https://hooks.zapier.com/hooks/catch/YOUR_WEBHOOK_URL/', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({
+      //     event: 'new_user_registration',
+      //     user: userData,
+      //     profile: userProfile.interests.slice(0, 3),
+      //     timestamp: new Date().toISOString()
+      //   })
+      // });
+
+    } catch (error) {
+      console.warn('❌ Error sending admin notification:', error);
+      alert(`⚠️ Email notification failed: ${error.message}`);
+      // Don't throw here - user creation should still succeed even if notification fails
+    }
+  };
+
   const completeProfileCreation = async () => {
     setLoading(true);
     try {
@@ -134,6 +203,9 @@ const countryOptions = [
       });
 
       console.log('Profile saved successfully:', completeProfile);
+      
+      // Send notification email to admin
+      await sendAdminNotification(emailData, profile);
       
       // Navigate to confirmation page with complete profile data
       navigate('/confirmation', { 
