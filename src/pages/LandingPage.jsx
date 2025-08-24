@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Target, Eye, Brain, Calendar, Rocket, ChevronRight, Shield, Clock, Heart, Menu, X,
-  CheckCircle, Sparkles, Zap, Filter, Star
+  Target, Eye, Brain, Calendar, Rocket, ChevronRight, Shield, Clock,
+  CheckCircle, Sparkles, Zap, Star
 } from 'lucide-react';
+import AppBar from '../components/AppBar';
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [articleCounter, setArticleCounter] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
 
@@ -202,126 +202,7 @@ const LandingPage = () => {
       `}</style>
       
       {/* App Bar */}
-      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-sm border-b border-slate-200">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center gap-3 group">
-            {/* New Logo with muba.today.svg */}
-            <img 
-              src="/muba.today.svg" 
-              alt="Muba.today Logo" 
-              className="h-8 w-auto transition-all duration-300 group-hover:scale-110"
-            />
-            
-            {/* Previous logo code - commented out
-            <div className="bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 rounded-full w-10 h-10 flex items-center justify-center shadow transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
-              <Mail className="w-5 h-5 text-white transition-transform duration-300 group-hover:rotate-12" />
-            </div>
-            <span className="text-lg font-bold tracking-tight transition-all duration-300 bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 bg-clip-text text-transparent group-hover:from-red-500 group-hover:via-pink-500 group-hover:to-purple-500">Muba</span>
-            */}
-          </div>
-          
-          {/* Centered Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
-            <button 
-              onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
-              className="text-slate-700 hover:text-purple-600 font-medium transition-all duration-300 relative group"
-            >
-              <span className="relative z-10">Features</span>
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 group-hover:w-full transition-all duration-300"></div>
-            </button>
-            <button 
-              onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-              className="text-slate-700 hover:text-purple-600 font-medium transition-all duration-300 relative group"
-            >
-              <span className="relative z-10">How It Works</span>
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 group-hover:w-full transition-all duration-300"></div>
-            </button>
-            <button 
-              onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
-              className="text-slate-700 hover:text-purple-600 font-medium transition-all duration-300 relative group"
-            >
-              <span className="relative z-10">Testimonials</span>
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 group-hover:w-full transition-all duration-300"></div>
-            </button>
-          </nav>
-          
-          {/* Get Started Button - Hidden on mobile since it's in mobile menu */}
-          <div className="hidden md:flex items-center">
-            <button
-              onClick={() => navigate('/assessment')}
-              className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-xl hover:scale-105 hover:from-purple-500 hover:to-pink-400 transform"
-            >
-              Get Started
-            </button>
-          </div>
-          
-          {/* Mobile menu button */}
-          <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
-          >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-slate-200 shadow-lg">
-            <div className="px-4 py-4 space-y-3">
-              <button
-                onClick={() => {
-                  document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
-                  setMobileMenuOpen(false);
-                }}
-                className="block w-full text-left px-3 py-2 text-slate-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg font-medium"
-              >
-                Features
-              </button>
-              <button
-                onClick={() => {
-                  document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
-                  setMobileMenuOpen(false);
-                }}
-                className="block w-full text-left px-3 py-2 text-slate-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg font-medium"
-              >
-                How It Works
-              </button>
-              <button
-                onClick={() => {
-                  document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' });
-                  setMobileMenuOpen(false);
-                }}
-                className="block w-full text-left px-3 py-2 text-slate-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg font-medium"
-              >
-                Testimonials
-              </button>
-              <button
-                onClick={() => {
-                  navigate('/contact');
-                  setMobileMenuOpen(false);
-                }}
-                className="block w-full text-left px-3 py-2 text-slate-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg font-medium"
-              >
-                Contact Us
-              </button>
-              <button
-                onClick={() => {
-                  navigate('/assessment');
-                  setMobileMenuOpen(false);
-                }}
-                className="block w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-3 rounded-lg font-medium hover:shadow-lg transition-all text-center mt-3"
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-        )}
-      </header>
+      <AppBar />
 
       <div className="relative container mx-auto px-6 pt-8 md:pt-12 pb-12 mt-4 md:mt-6 max-w-7xl">
         {/* Hero Section */}

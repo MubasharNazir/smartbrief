@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { 
-  Mail, Calendar, CheckCircle, Globe, Eye, Settings, Users, TrendingUp, X, Loader
+  Mail, Calendar, CheckCircle, Globe, Eye, Settings, Users, TrendingUp, X
 } from 'lucide-react';
+import AppBar from '../components/AppBar';
 
 const Confirmation = () => {
   const { state } = useLocation();
@@ -40,19 +41,7 @@ const Confirmation = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* App Bar */}
-      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-sm border-b border-slate-200">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center gap-3 group">
-            <img 
-              src="/muba.today.svg" 
-              alt="Muba.today Logo" 
-              className="h-8 w-auto transition-all duration-300 group-hover:scale-110 cursor-pointer"
-              onClick={() => navigate('/')}
-            />
-          </div>
-        </div>
-      </header>
+      <AppBar />
 
       <div className="p-4">
       <div className="max-w-4xl mx-auto">

@@ -4,6 +4,7 @@ import {
   Star, ChevronRight, ChevronLeft, Check
 } from 'lucide-react';
 import useClarity from '../hooks/useClarity';
+import AppBar from '../components/AppBar';
 
 const Assessment = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -599,18 +600,7 @@ const renderQuestion = () => {
       )}
 
       {/* App Bar */}
-      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-sm border-b border-slate-200">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center gap-3 group">
-            <img 
-              src="/muba.today.svg" 
-              alt="Muba.today Logo" 
-              className="h-8 w-auto transition-all duration-300 group-hover:scale-110"
-            />
-          </div>
-        </div>
-      </header>
+      <AppBar />
 
       <div className="p-4">
       <div className="max-w-4xl mx-auto">

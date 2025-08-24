@@ -4,9 +4,10 @@ import { db } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 import { 
   Mail, Send, Clock, 
-  ChevronLeft, MessageCircle, HelpCircle, Users,
+  MessageCircle, HelpCircle, Users,
   Plus, Minus
 } from 'lucide-react';
+import AppBar from '../components/AppBar';
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -75,56 +76,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-sm border-b border-slate-200">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3 group">
-            {/* Same Logo as Hero Section */}
-            <img 
-              src="/muba.today.svg" 
-              alt="Muba.today Logo" 
-              className="h-8 w-auto transition-all duration-300 group-hover:scale-110 cursor-pointer"
-              onClick={() => navigate('/')}
-            />
-          </div>
-          
-          {/* Centered Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
-            <button 
-              onClick={() => navigate('/')}
-              className="text-slate-700 hover:text-purple-600 font-medium transition-all duration-300 relative group"
-            >
-              <span className="relative z-10">Home</span>
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 group-hover:w-full transition-all duration-300"></div>
-            </button>
-            <button 
-              onClick={() => navigate('/about')}
-              className="text-slate-700 hover:text-purple-600 font-medium transition-all duration-300 relative group"
-            >
-              <span className="relative z-10">About</span>
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 group-hover:w-full transition-all duration-300"></div>
-            </button>
-            <button 
-              onClick={() => navigate('/contact')}
-              className="text-purple-600 font-medium transition-all duration-300 relative group"
-            >
-              <span className="relative z-10">Contact</span>
-              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-600 to-pink-500"></div>
-            </button>
-          </nav>
-          
-          {/* Get Started Button */}
-          <div className="hidden md:flex items-center">
-            <button
-              onClick={() => navigate('/assessment')}
-              className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-xl hover:scale-105 hover:from-purple-500 hover:to-pink-400 transform"
-            >
-              Get Started
-            </button>
-          </div>
-          
-          {/* Mobile menu would go here */}
-        </div>
-      </header>
+      <AppBar />
 
       <div className="container mx-auto px-4 py-16">
         {/* Hero Section */}
