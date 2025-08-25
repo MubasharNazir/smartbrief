@@ -712,17 +712,18 @@ const LandingPage = () => {
             </div>
           </div>
         </section>
+      </div>
 
-        {/* Footer Section */}
-        <footer className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
-          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-10 left-10 w-32 h-32 bg-purple-500 rounded-full blur-2xl"></div>
-            <div className="absolute bottom-10 right-10 w-32 h-32 bg-pink-500 rounded-full blur-2xl"></div>
-          </div>
-          
-          <div className="relative px-6 md:px-12 py-16 md:py-20">
+      {/* Footer Section - Full Width */}
+      <footer className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-purple-500 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-10 right-10 w-32 h-32 bg-pink-500 rounded-full blur-2xl"></div>
+        </div>
+        
+        <div className="relative container mx-auto px-6 md:px-12 py-16 md:py-20">
             <div className="grid md:grid-cols-4 gap-8 mb-12">
               <div className="md:col-span-2">
                 <div className="flex items-center gap-3 mb-6">
@@ -816,9 +817,8 @@ const LandingPage = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
   );
 };
