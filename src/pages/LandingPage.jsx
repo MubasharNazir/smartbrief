@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Target, Eye, Brain, Calendar, Rocket, ChevronRight, Shield, Clock,
+  Target, Brain, Calendar, ChevronRight, Shield, Clock,
   CheckCircle, Sparkles, Zap, Star
 } from 'lucide-react';
 import AppBar from '../components/AppBar';

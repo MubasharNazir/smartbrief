@@ -35,13 +35,13 @@ const AdminDashboard = () => {
     openRate: 65.2,
     clickRate: 23.1
   });
-  const [showAddUser, setShowAddUser] = useState(false);
-  const [newUser, setNewUser] = useState({
-    name: '',
-    email: '',
-    country: '',
-    interests: []
-  });
+  // const [showAddUser, setShowAddUser] = useState(false);
+  // const [newUser, setNewUser] = useState({
+  //   name: '',
+  //   email: '',
+  //   country: '',
+  //   interests: []
+  // });
   const [firebaseDebug, setFirebaseDebug] = useState({
     collections: {},
     error: null
