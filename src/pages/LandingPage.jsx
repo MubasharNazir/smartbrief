@@ -265,13 +265,13 @@ const LandingPage = () => {
                   onClick={() => navigate('/assessment')}
                   className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all hover:scale-[1.02] text-lg"
                 >
-                  <Rocket className="w-5 h-5" /> Get Personalized News
+                  Take Assessment
                 </button>
                 <button
                   onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-slate-300 text-slate-800 bg-white hover:bg-slate-50 font-medium"
                 >
-                  <Eye className="w-5 h-5" /> See How It Works
+                  See How It Works
                 </button>
               </div>
               
@@ -606,9 +606,7 @@ const LandingPage = () => {
                   onClick={() => navigate('/assessment')}
                   className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-500 hover:to-pink-400 text-white px-8 md:px-12 py-4 md:py-5 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
                 >
-                  <Brain className="w-6 h-6" />
-                  Get My Personalized News
-                  <ChevronRight className="w-5 h-5" />
+                  Take Assessment
                 </button>
               </div>
               

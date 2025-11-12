@@ -92,7 +92,7 @@ const About = () => {
         </div>
 
         {/* Team Section */}
-        <div className="text-center mb-16">
+        {/* <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">Meet Our Team</h2>
           <p className="text-gray-600 text-lg mb-12 max-w-2xl mx-auto">
             We're a diverse team of journalists, technologists, and data scientists united 
@@ -133,7 +133,7 @@ const About = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Join Us Section */}
         <div className="bg-gradient-to-r from-purple-600 to-pink-500 rounded-3xl text-white p-12 text-center">
