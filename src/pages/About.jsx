@@ -91,8 +91,8 @@ const About = () => {
           </div>
         </div>
 
-        {/* Team Section */}
-        {/* <div className="text-center mb-16">
+        {/* Team Section
+        <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">Meet Our Team</h2>
           <p className="text-gray-600 text-lg mb-12 max-w-2xl mx-auto">
             We're a diverse team of journalists, technologists, and data scientists united 
